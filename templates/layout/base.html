@@ -92,6 +92,30 @@
         <!--<script src="https://assets.pxlecdn.com/assets/pixlee_widget_1_0_0.js"></script><div id="pixlee_init_container"></div><script type = "text/javascript" >Pixlee.init({apiKey: 'qEm0eAa02bgPoVjo0wyc',priority:true});Pixlee.addSimpleWidget({widgetId:9664246}); </script>-->
         <script defer src=https://assets.pxlecdn.com/assets/pixlee_widget_1_0_0.js></script><div id="pixlee_init_container"></div><script type = "text/javascript" >Pixlee.init({apiKey: 'qEm0eAa02bgPoVjo0wyc',priority:true});Pixlee.addSimpleWidget({widgetId:13914656}); </script>
         <link rel="preload" href="https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/84e28b3e-cafd-48d0-b5d3-08053a135c30/mold-maker.webp" as="image">
+        {{#if product.main_image}}
+        <script>
+            // create a new Image object
+            let img = new Image();
+            // set the src to the product main image and replace {:size} with 640w
+            img.src = "{{product.main_image.data}}".replace("{:size}", "640w").replace("&#x3D;", "=");
+            console.log(img)
+
+            /*
+            *Note: 
+            640w seems to be the common mobile image size across all the themes. 
+            The image url from handlebars uses {:size} to dynamically generate the size
+            at build time. Using the handlebars for the product image allows us to grab
+            the url before the page loads and replace {:size} with 640w in the url.
+            Doing it this way seems to generate the best results on LCP, including
+            the warning on pagespeed.web.dev telling us to preload the LCP. This method
+            fixes that warning and loads the content the fastest.
+
+            **Note:
+            You MUST set lazyload=disabled on the product main image in product-view.
+            Never lazyload the LCP.
+            */
+        </script>
+        {{/if}}
     </head>
     <body>
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
