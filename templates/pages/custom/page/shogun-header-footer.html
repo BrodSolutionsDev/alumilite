@@ -1,0 +1,15 @@
+{{#partial "page"}}
+<div id="shogun-header-footer" class="container">
+    <main class="page">
+        <div class="page-content">
+            {{{page.content}}}
+        </div>
+    </main>
+</div>
+{{/partial}}
+{{> layout/base}}
+<script>
+    fbq('track', 'PageView');
+    rdt('track', 'ViewContent');
+  </script>
+  

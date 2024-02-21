@@ -1,0 +1,901 @@
+{{#partial "page"}}
+
+<div class="container-fluid">
+    
+    <div id="hero-top" class="hero">
+        <h2>Project Calculator<br /><span class="flood">what you want</span></h2>
+    </div>
+    <section class="calc-directions" id="directions">
+        <h2>How to use our calculator</h2>
+        <section class="calc-directions__cards" id="instruction_steps">
+        </section>
+    </section>
+    <div class="container calc">
+        
+        <form id="regForm" action="">
+            <h1>Calculator</h1>
+            <!-- <div class="selections">
+                <div class="selection">
+                    <h2 class="selection-title">Project</h2>
+                    <span id="project-title"></span>
+                </div>
+                <div class="selection">
+                    <h2 class="selection-title">Product</h2>
+                    <span id="product-title"></span>
+                </div>
+                <div class="selection">
+                    <h2 class="selection-title">Shape</h2>
+                    <span id="shape-title"></span>
+                </div>
+            </div>
+            <div style="text-align:center;">
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+            </div> -->
+
+            <ul class="progress">
+                <li class="progress-step">
+                    <div class="progress-step__number active-step">1</div>
+                    <p>Project</p>
+                </li>
+                <li class="progress-step">
+                    <div class="progress-step__number">2</div>
+                    <p>Product</p>
+                </li>
+                <li class="progress-step">
+                    <div class="progress-step__number">3</div>
+                    <p>Dimensions</p>
+                </li>
+                <li class="progress-step">
+                    <div class="progress-step__number">4</div>
+                    <p>Calculate</p>
+                </li>
+            </ul>
+
+            <div>
+                <div style="float:right; height: 0">
+                    <button id="previous" type="button" onclick="previousButton()">Previous</button>
+                    <!-- <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)" style="display:none;">Next</button> -->
+                    <!-- <a href="#projects" id="start-over">Start Over</a> -->
+                </div>
+            </div>
+            <section class="calc-project tab" id="projects">
+                <h2>Select your project</h2>
+                <section class="calc-project__cards" id="project_cards"></section>
+            </section>
+
+            <section class="calc-products tab" id="products">
+                <h2>Select a product</h2>
+                <section class="calc-products__cards"></section>
+            </section>
+
+            <section class="calc-calculator tab" id="calculator">
+                <h2>Enter your project dimensions</h2>
+                <div class="calc-calculator__content">
+                    <div class="input-values">
+                        <h3>What shape is your project?</h3>
+                        <div class="input-values__shapes">
+                            <div class="calculator calc-card" data-card-id="visual-rectangle">
+                                <img src="https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/square-select.png?t=1642517077"
+                                    alt="Square" class="calc-card-img squareImage" />
+                                <div class="calc-card-inner">
+                                    <h4 class="shape-select" id="rectangle">Rectangle</h4>
+                                </div>
+                            </div>
+
+                            <div class="calculator calc-card" data-card-id="visual-circle">
+                                <img src="https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/round-select.png?t=1642517077"
+                                    alt="circle" class="calc-card-img circleImage" />
+                                <div class="calc-card-inner">
+                                    <h4 class="shape-select" id="circle">Circle</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="inclusion"></div>
+                        <div class="input-values__inputs">
+
+                        </div>
+                    </div>
+                    <div id="visual">
+                        <div id="visual-rectangle">
+                            <img class="shape-visual"
+                                src="https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/table-square.png?t=1642515666"
+                                alt="" />
+                            <p>Formula for a Rectangular Surface:<br>Width x Height x Thickness x .554 = fl. oz.</p>
+                            <p><em>In terms of depth, Epoxy generally self-levels to .125 (1/8) inches.</em></p>
+                        </div>
+                        <div id="visual-circle">
+                            <img class="shape-visual"
+                                src="https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/table-round.png?t=1642515666"
+                                alt="">
+                            <p>Formula for a Round Surface:<br>Pi x Radius (squared) x Thickness x .554 = fl. oz.</p>
+                        </div>
+                        <div id="visual-tumbler">
+                            <img class="shape-visual"
+                                src="https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/tumbler.png?t=1642515665"
+                                alt="">
+                            <p>Formula for a Tumbler:<br>Fluid ounces x 1.25</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+            <section class="calc-calculation tab">
+                <section class="calc-results" id="calc-results">
+                    <div class="total">
+                        <h5>Ounces:</h5>
+                        <span id="total-ounces"></span>
+                    </div>
+
+                    <div class="total">
+                        <h5>Gallons:</h5>
+                        <span id="total-gallons"></span>
+                    </div>
+
+                    <div class="total">
+                        <h5>Mililiters:</h5>
+                        <span id="total-milliters"></span>
+                    </div>
+
+                    <div class="total">
+                        <h5>Liters:</h5>
+                        <span id="total-liters"></span>
+                    </div>
+
+                    <div class="total">
+                        <h5>Pounds:</h5>
+                        <span id="total-pounds"></span>
+                    </div>
+                </section>
+
+                <section class="calc-quickView" id="calc-quickView">
+                    <div class="calc-quickView__inner">
+                        <img id="results-img" alt="" />
+                        <div class="calc-quickView__inner-bio">
+                            <h3 id="results-title"></h3>
+                            <p id="results-description">
+                            </p>
+                            <!-- <p>$<span id="totalPrice"></span></p> -->
+                            <!-- <a class="add-to-cart" id="addToCartMultiple">Add to Cart</a> -->
+                            <a class="add-to-cart quickview" id="view-product" data-event-type="product-click">Buy Now</a>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <p class="disclaimer"><strong>Disclaimer:</strong> Alumilite offers no warranty, either expressed or implied, as to the reliability of the information contained herein and they assume no liability for loss or damage associated with use of these calculators.</p>
+        </form>
+
+        <div class="flex flex-top">
+            <div class="flex-50">
+                <h3>Amount of RTV Needed for Making a Silicone Rubber Mold</h3>
+                <p><em>Note: There are 21 grams per cubic inch of Silicone Rubber.</em></p>
+                <p>There are 453 grams in 1lb.</p>
+                <h5>Formula for a Square/Rectangle Mold: <span style="color: #f9423a; font-style: italic;">Length x
+                        Width x
+                        Height</span></h5>
+                <h6><strong>Example:</strong> You have a mold box that needs to be filled up 9" x 4" x 2" = 72 cubic
+                    inches
+                    in order to completly cover your original/part.</h6>
+                <p>Now using the same formula subtract the cubic inches (volume) of your part.</p>
+                <p><strong>Example:</strong> Your part is 8" x 3.5" x 1.5" = 42 cubic inches.</p>
+                <p>Then you would take 72 - 42 to give you a total of 30 cubic inches.</p>
+                <p>30 cubic inches x 21 grams per cubic inch = 630 grams of RTV needed.</p>
+                <p>And then if you want to calculate that into lbs. take 630 divided by 453 grams per lb. = 1.39 lbs. of
+                    RTV.</p>
+                <h5>Formula for a Round Mold: <span style="color: #f9423a; font-style: italic;">Pi x Radius (squared) x
+                        Height</span></h5>
+                <h6><strong>Example:</strong> The diameter of a mold is 4" (the radius would then be half of that being
+                    2")
+                    and the height is 3".</h6>
+                <p><strong>So this is what it would look like:</strong></p>
+                <p><span style="color: #f9423a; font-style: italic;">2" x 2" (radius squared) x 3.14 (pi) x 3 (height) =
+                        37.68 cubic inches.</span></p>
+                <p>Now using the same formula subtract the cubic inches of your part.</p>
+                <p><strong>Example:</strong> The part is 3.5" diameter (1.75" radius) by 2.75" high.</p>
+                <p><strong>So this is what it would look like:</strong></p>
+                <p><span style="color: #f9423a; font-style: italic;">1.75" x 1.75" (radius squared) x 3.14 (pi) x 2.75"
+                        (height) = 26.45 cubic inches.</span></p>
+                <p>Then you would take 37.68 - 26.45 to give you a total of 11.23 cubic inches.</p>
+                <p>11.23 cubic inches x 21 grams per cubic inch = 236 grams of RTV needed.</p>
+                <p>And then if you want to calculate that into lbs. take 236 divided by 453 grams per lb. = .52 lbs. of
+                    RTV.
+                </p>
+            </div>
+            <div class="flex-50">
+                <h3>Amount of Resin Needed to Cast a Part</h3>
+                <p><em>Note: There is .554 ounces in 1 cubic inch of Alumilite Resin.</em></p>
+                <h5>Formula for a Square/Rectangular Piece:<span style="color: #f9423a; font-style: italic;"> Length x
+                        Width
+                        x Height</span></h5>
+                <h6><strong>Example:</strong> If your piece is 3" x 4" x 2" = 24 cubic inches. Take 24 cubic inches x
+                    .554
+                    ounces per cubic inch = 13.25 ounces.</h6>
+                <p><strong>Formula for a Round Piece:</strong> <span style="color: #f9423a; font-style: italic;">Pi x
+                        Radius
+                        (squared) x Height.</span></p>
+                <p>Use the same formula as the RTV round mold (section 1) to calculate resin needed. Then multiply that
+                    by
+                    .554 ounces per cubic inch to determine ounces needed.</p>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="../../../../assets/js/theme/custom/calculator.js"></script> -->
+    <script src="{{cdn 'assets/js/theme/custom/calculator.js'}}"></script>
+
+    <!-- STEP 1 -->
+    <!-- INITIAL SETUP -->
+    <script>
+        var selectedProject;
+        var selectedProduct;
+        var inclusionSize;
+        var graphObj;
+        var instructions = Object.values(calculator.instructions);
+        var userInput = document.querySelector('.input-values__inputs');
+        var tumblerImage = document.getElementById('visual-tumbler');
+        var rectangleImage = document.getElementById('visual-rectangle');
+        var circleImage = document.getElementById('visual-circle');
+        var projectCardsSection = document.querySelector('.calc-project__cards');
+        var productCardsSection = document.querySelector('.calc-products__cards');
+        var instructionsSection = document.getElementById('instruction_steps');
+        var quickViewSection = document.getElementById('calc-quickView');
+        var resultsSection = document.getElementById('calc-results');
+        var visualSection = document.getElementById('visual');
+
+        stepCards.forEach(card => {
+            instructionsSection.appendChild(card);
+        });
+        projectCards.forEach(card => {
+            projectCardsSection.appendChild(card);
+        });
+
+        for (var i = 0; i < projectCards.length; i++) {
+            projectCards[i].addEventListener("click", function () {
+                var currentProject = document.querySelector('.selectedProject');
+                if (currentProject) currentProject.classList.remove('selectedProject');
+                this.classList.add('selectedProject');
+
+                selectedProject = this.getAttribute('data-project-id');
+                getProducts(selectedProject); // get the products for the selected project
+
+                // add the project name to the selected project at top of calculator
+                // document.querySelectorAll('.selection-title')[0].style.color = "#000";
+                // document.getElementById('project-title').innerHTML =
+                //     Object.values(calculator.projects)
+                //         .filter(project => project.object_id == selectedProject)[0].name;
+
+                        
+                        getProductCards();
+                        nextWindow();
+            });
+        }
+    </script>
+
+    <!-- STEP 2 -->
+    <!-- PRODUCT CARDS -->
+    <script>
+        function getProductCards() {
+            productCardsSection.innerHTML = ''; // clear the document of previous cards
+            productCards.forEach(card => {
+                productCardsSection.appendChild(card); // add the selected project's cards to the document
+            });
+
+            productCards = [];
+
+            var productCardsArr = document.querySelectorAll('.calc-products__cards .calc-card'); // grab all cards in selected project
+
+            for (var i = 0; i < productCardsArr.length; i++) {
+                productCardsArr[i].addEventListener('click', function () {
+                    var currentProduct = document.querySelector('.selectedProduct');
+                    if (currentProduct) currentProduct.classList.remove('selectedProduct');
+                    this.classList.add('selectedProduct');
+
+                    selectedProduct = this.getAttribute('data-product-id');
+
+                    // add the product name to the selected product at top of calculator
+                    // document.querySelectorAll('.selection-title')[1].style.color = "#000";
+                    // document.getElementById('product-title').innerHTML =
+                    //     Object.values(Object.values(calculator.projects)
+                    //         .filter(project => project.object_id == selectedProject)[0].products
+                    //         .filter(product => Object.values(product)[0].object_id == selectedProduct)[0])[0].name;
+
+                            
+                            fetchProductInfo();
+                            
+                            selectDimensionsShape();
+                            nextWindow();
+                });
+            }
+        }
+    </script>
+
+    <!-- STEP 3 -->
+    <!-- DIMENSIONS SHAPE SELECTION -->
+    <script>
+        function selectDimensionsShape() {
+            var shapeSelectArr = document.querySelectorAll('.calculator.calc-card');
+
+            if (selectedProject >= 3) {
+                document.querySelector('.calculator.calc-card .squareImage').src = "https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/cube-dark.png?t=1640028152&_gl=1*1yvkz6k*_ga*NTY1NDIyNTkuMTY0MzE0ODUxOQ..*_ga_WS2VZYPC6G*MTY0Mzk4MzY0NC4yNS4xLjE2NDM5ODM2NTYuNDg.";
+                document.querySelector('.calculator.calc-card .circleImage').src = 'https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/cylinder-dark.png?t=1640028448&_gl=1*1p38mih*_ga*NTY1NDIyNTkuMTY0MzE0ODUxOQ..*_ga_WS2VZYPC6G*MTY0Mzk4MzY0NC4yNS4xLjE2NDM5ODM2NTYuNDg.';
+            } else {
+                document.querySelector('.calculator.calc-card .squareImage').src = 'https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/square-select.png?t=1642517077';
+                document.querySelector('.calculator.calc-card .circleImage').src = 'https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/round-select.png?t=164251707';
+            }
+
+            if (selectedProject == 2) {
+                userInput.innerHTML = tumblerCalculator;
+                // document.querySelectorAll('.selection-title')[2].style.color = "#000";
+                // document.getElementById('shape-title').innerHTML = "Tumbler";
+                document.querySelector('.input-values__shapes').style.display = "none";
+                document.querySelector('.input-values h3').style.display = "none";
+                visualSection.style.visibility = 'visible';
+                rectangleImage.style.display = "none";
+                circleImage.style.display = "none";
+                tumblerImage.style.display = "block";
+
+                var tumbler = calculator.calculators.tumbler;
+
+                document.getElementById('calculate').addEventListener('click', function () {
+                    
+                    var ounces = document.getElementById('ounces').value;
+                    var total = document.getElementById('total').value;
+                    if (ounces != '' && total != '') {
+                        // Surface Coat Circl Calc
+                        var resultOz = tumbler.calculation(ounces, total);
+
+                        document.getElementById('total-ounces').innerHTML = tumbler.ounces(resultOz);
+                        document.getElementById('total-gallons').innerHTML = tumbler.gallons(resultOz);
+                        document.getElementById('total-milliters').innerHTML = tumbler.milliliters(resultOz);
+                        document.getElementById('total-liters').innerHTML = tumbler.liters(resultOz);
+                        document.getElementById('total-pounds').innerHTML = tumbler.pounds(resultOz);
+                        //
+                        resultsSection.style.display = "flex";
+                        quickViewSection.style.display = "flex";
+
+                        totalOunces = resultOz;
+                        nextWindow();
+                        return totalOunces;
+                    }
+                });
+            } else {
+                document.querySelector('.input-values__shapes').style.display = "flex";
+                document.querySelector('.input-values h3').style.display = "What shape is your project?";
+                visualSection.style.visibility = 'hidden';
+                tumblerImage.style.display = 'none';
+                userInput.innerHTML = "";
+            }
+ 
+            for (var i = 0; i < shapeSelectArr.length; i++) {
+                shapeSelectArr[i].addEventListener('click', calculatorByShape);
+            }
+
+            function calculatorByShape() {
+                var currentShape = document.querySelector('.selectedShape');
+                if (currentShape) currentShape.classList.remove('selectedShape');
+                this.classList.add('selectedShape');
+
+                var selectedShape = document.querySelector('.calc-card.selectedShape').getAttribute('data-card-id');
+
+                visualSection.style.visibility = "visible";
+                if (selectedShape == 'visual-rectangle') rectangleInputs();
+
+                if (selectedShape == 'visual-circle') circleInputs();
+            }
+        }
+
+        function rectangleInputs() {
+            if (selectedProject >= 3) {
+                document.querySelector('#visual-rectangle .shape-visual').src = 'https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/box-dark.png?t=1643910692&_gl=1*q93fzm*_ga*NTY1NDIyNTkuMTY0MzE0ODUxOQ..*_ga_WS2VZYPC6G*MTY0MzkxMDYzOC4yMS4xLjE2NDM5MTA3OTUuNTg.';
+            } else {
+                document.querySelector('#visual-rectangle .shape-visual').src = 'https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/table-square.png?t=1642515666';
+            }
+            
+            if (selectedProject == 3 || selectedProject == 6) {
+                document.getElementById('inclusion').style.display = "flex";
+                
+                var inclusionSelect = `
+                <div id="inclusionSelect">
+                <h4 id="inclusionHeading">Inclusion Size</h4>
+                <div class="inputs-container">
+                    <div class="input-wrapper">
+                        <label for="inclusion-width">Width</label>
+                        <input type="number" id="inclusion-width" />
+                    </div>
+                    <span>&#10005;</span>
+                    <div class="input-wrapper">
+                        <label for="inclusion-length">Length</label>
+                        <input type="number" id="inclusion-length" />
+                    </div>
+                    <span>&#10005;</span>
+                    <div class="input-wrapper">
+                        <label for="inclusion-thickness">Length</label>
+                        <input type="number" id="inclusion-thickness" />
+                    </div>
+                </div>
+                <p>*values are in inches</p>
+                </div>
+                `;
+
+                var inclusionForm = `
+                <h4>Are you using an inclusion?</h4>
+                    <div class="inclusionFormWrapper">
+                        <form>
+                            <label for="yesInclusion">Yes</label>
+                            <input name="inclusionSelect" id="yesInclusion" type="radio" value="yes">
+                            <label for="noInclusion">No</label>
+                            <input name="inclusionSelect" id="noInclusion" type="radio" value="no" checked>
+                        </form>
+                    </div>
+                `;
+
+                document.getElementById('inclusion').innerHTML = inclusionForm;
+
+                document.getElementById('yesInclusion').addEventListener('click', function() {
+                    document.getElementById('inclusion').innerHTML = inclusionSelect;
+                });
+                
+                document.getElementById('inclusion').addEventListener('change', function() {
+                    inclusionSize = document.getElementById('inclusion-width').value * document.getElementById('inclusion-length').value * document.getElementById('inclusion-thickness').value;
+
+                })
+            }
+
+            if (selectedProject == 4 || selectedProject == 5) {
+                document.getElementById('inclusion').style.display = "flex";
+                
+                var inclusionSelect = `
+                <div id="inclusionSelect">
+                <h4 id="inclusionHeading">Master Size</h4>
+                <div class="inputs-container">
+                    <div class="input-wrapper">
+                        <label for="inclusion-width">Width</label>
+                        <input type="number" id="inclusion-width" />
+                    </div>
+                    <span>&#10005;</span>
+                    <div class="input-wrapper">
+                        <label for="inclusion-length">Length</label>
+                        <input type="number" id="inclusion-length" />
+                    </div>
+                    <span>&#10005;</span>
+                    <div class="input-wrapper">
+                        <label for="inclusion-thickness">Length</label>
+                        <input type="number" id="inclusion-thickness" />
+                    </div>
+                </div>
+                <p>*values are in inches</p>
+                </div>
+                `;
+
+                document.getElementById('inclusion').innerHTML = inclusionSelect;
+                
+                document.getElementById('inclusion').addEventListener('change', function() {
+                    inclusionSize = document.getElementById('inclusion-width').value * document.getElementById('inclusion-length').value * document.getElementById('inclusion-thickness').value;
+                })
+            }
+
+            var rectangle = calculator.calculators.rectangle;
+            // document.querySelectorAll('.selection-title')[2].style.color = "#000";
+            // document.getElementById('shape-title').innerHTML = "Rectangle";
+            rectangleImage.style.display = "block";
+            circleImage.style.display = "none";
+            tumblerImage.style.display = "none";
+
+            userInput.innerHTML = rectangleCalculator;
+
+            if (selectedProject >= 3) {
+                document.getElementById('thickness-select').style.display = 'none';
+
+                var wrappers = document.querySelectorAll('.input-wrapper');
+                wrappers[wrappers.length - 1].innerHTML = `
+                    <label for="thickness">Thickness</label>
+                    <input type="number" id="thickness" />
+                `;
+            }
+
+            document.getElementById('calculate').addEventListener('click', function () {
+                
+                var width = document.getElementById('width').value;
+                var length = document.getElementById('length').value;
+                var thickness = document.getElementById('thickness-select') ? document.getElementById('thickness-select').value : document.getElementById('thickness').value;
+                console.log(thickness);
+                if (width != '' && length != '' && thickness != '') {
+                    // Surface Coat Rectangle Calc
+                    var resultOz = rectangle.calculation(width, length, thickness);
+
+                    if (inclusionSize) resultOz -= inclusionSize;
+
+                    document.getElementById('total-ounces').innerHTML = rectangle.ounces(resultOz);
+                    document.getElementById('total-gallons').innerHTML = rectangle.gallons(resultOz);
+                    document.getElementById('total-milliters').innerHTML = rectangle.milliliters(resultOz);
+                    document.getElementById('total-liters').innerHTML = rectangle.liters(resultOz);
+                    document.getElementById('total-pounds').innerHTML = rectangle.pounds(resultOz);
+                    //
+                    resultsSection.style.display = "flex";
+                    quickViewSection.style.display = "flex";
+                    totalOunces = resultOz;
+                    nextWindow();
+                    return totalOunces;
+                }
+            });
+        }
+
+        function circleInputs() {
+            // show the box or cylinder cardShape images instead of flat rectangle or circle 
+            if (selectedProject >= 3) {
+                document.querySelector('#visual-circle .shape-visual').src = 'https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/cylinder-dark-2.png?t=1644611300&_gl=1*1tvsu3b*_ga*NTY1NDIyNTkuMTY0MzE0ODUxOQ..*_ga_WS2VZYPC6G*MTY0NDYxMTI3OC40MS4xLjE2NDQ2MTEzMDMuMzU.';
+            } else {
+                document.querySelector('#visual-circle .shape-visual').src = 'https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/table-round.png?t=1642515666';
+            }
+
+            // projects that require an inclusion
+            if (selectedProject == 3 || selectedProject == 6) {
+                document.getElementById('inclusion').style.display = "flex";
+                
+                var inclusionSelect = `
+                <div id="inclusionSelect">
+                <h4 id="inclusionHeading">Inclusion Size</h4>
+                <div class="inputs-container">
+                    <div class="input-wrapper">
+                        <label for="inclusion-width">Width</label>
+                        <input type="number" id="inclusion-width" />
+                    </div>
+                    <span>&#10005;</span>
+                    <div class="input-wrapper">
+                        <label for="inclusion-length">Length</label>
+                        <input type="number" id="inclusion-length" />
+                    </div>
+                    <span>&#10005;</span>
+                    <div class="input-wrapper">
+                        <label for="inclusion-thickness">Length</label>
+                        <input type="number" id="inclusion-thickness" />
+                    </div>
+                </div>
+                <p>*values are in inches</p>
+                </div>
+                `;
+
+                var inclusionForm = `
+                    <h4>Are you using an inclusion?</h4>
+                    <div class="inclusionFormWrapper">
+                        <form>
+                            <label for="yesInclusion">Yes</label>
+                            <input name="inclusionSelect" id="yesInclusion" type="radio" value="yes">
+                            <label for="noInclusion">No</label>
+                            <input name="inclusionSelect" id="noInclusion" type="radio" value="no" checked>
+                        </form>
+                    </div>
+                `;
+
+                document.getElementById('inclusion').innerHTML = inclusionForm;
+
+                document.getElementById('yesInclusion').addEventListener('click', function() {
+                    document.getElementById('inclusion').innerHTML = inclusionSelect;
+                });
+                
+                document.getElementById('inclusion').addEventListener('change', function() {
+                    inclusionSize = document.getElementById('inclusion-width').value * document.getElementById('inclusion-length').value * document.getElementById('inclusion-thickness').value;
+
+                })
+            }
+            
+            // projects that require a master
+            if (selectedProject == 4 || selectedProject == 5) {
+                document.getElementById('inclusion').style.display = "flex";
+                
+                var inclusionSelect = `
+                <div id="inclusionSelect">
+                <h4 id="inclusionHeading">Master Size</h4>
+                <div class="inputs-container">
+                    <div class="input-wrapper">
+                        <label for="inclusion-width">Width</label>
+                        <input type="number" id="inclusion-width" />
+                    </div>
+                    <span>&#10005;</span>
+                    <div class="input-wrapper">
+                        <label for="inclusion-length">Length</label>
+                        <input type="number" id="inclusion-length" />
+                    </div>
+                    <span>&#10005;</span>
+                    <div class="input-wrapper">
+                        <label for="inclusion-thickness">Length</label>
+                        <input type="number" id="inclusion-thickness" />
+                    </div>
+                </div>
+                <p>*values are in inches</p>
+                </div>
+                `;
+
+                document.getElementById('inclusion').innerHTML = inclusionSelect;
+                
+                document.getElementById('inclusion').addEventListener('change', function() {
+                    inclusionSize = document.getElementById('inclusion-width').value * document.getElementById('inclusion-length').value * document.getElementById('inclusion-thickness').value;
+                })
+            }
+
+            var circle = calculator.calculators.circle;
+            // document.querySelectorAll('.selection-title')[2].style.color = "#000";
+            // document.getElementById('shape-title').innerHTML = "Circle";
+            circleImage.style.display = "block";
+            rectangleImage.style.display = "none";
+            tumblerImage.style.display = "none";
+
+            userInput.innerHTML = circleCalculator;
+
+            // show an input instead of a select dropdown
+            if (selectedProject >= 3) {
+                document.getElementById('thickness-select').style.display = 'none';
+
+                var wrappers = document.querySelectorAll('.input-wrapper');
+                wrappers[wrappers.length - 1].innerHTML = `
+                    <label for="thickness">Thickness</label>
+                    <input type="number" id="thickness" />
+                `;
+            }
+
+            document.getElementById('calculate').addEventListener('click', function () {
+                
+                var radius = document.getElementById('radius').value;
+                var thickness = document.getElementById('thickness-select') ? document.getElementById('thickness-select').value : document.getElementById('thickness').value;
+                if (radius != '' && thickness != '') {
+                    // Surface Coat Circl Calc
+
+                    var resultOz = circle.calculation(radius, thickness);
+
+                    if (inclusionSize) resultOz -= inclusionSize;
+
+                    document.getElementById('total-ounces').innerHTML = circle.ounces(resultOz);
+                    document.getElementById('total-gallons').innerHTML = circle.gallons(resultOz);
+                    document.getElementById('total-milliters').innerHTML = circle.milliliters(resultOz);
+                    document.getElementById('total-liters').innerHTML = circle.liters(resultOz);
+                    document.getElementById('total-pounds').innerHTML = circle.pounds(resultOz);
+                    //
+                    resultsSection.style.display = "flex";
+                    quickViewSection.style.display = "flex";
+
+                    totalOunces = resultOz;
+                    nextWindow();
+                    return totalOunces;
+                }
+            });
+        }
+    </script>
+
+    <!-- STEP 4 -->
+    <!-- GRAPH QL -->
+    <script>
+        var basket = [];
+        function fetchProductInfo() {
+            var queryBuilder = `${selectedProject}${selectedProduct}`; // grab the info for the graphQL query
+            var productId;
+
+            Object.values(calculator.projects)[queryBuilder[0]].products.forEach(product => { // grab the products of the selected project
+                if (Object.values(product)[0].object_id == queryBuilder[1]) { // if the object_id of the selected product matches the product the user selected
+                    productId = Object.values(product)[0].product_id; // set the entity id to product id for graphQL
+                }
+            });
+
+            fetch("/graphql", {
+                method: "POST",
+                credentials: "same-origin",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: "Bearer {{settings.storefront_api.token}}",
+                },
+                body: JSON.stringify({
+                    query: ` 
+                {
+                    site {
+                        product(entityId: ${productId}) {
+                            entityId
+                            name
+                            sku
+                            path
+                            defaultImage {
+                                urlOriginal
+                            }
+                            plainTextDescription
+                            description
+                            variants {
+                                edges {
+                                node {
+                                    sku
+                                    inventory {
+                                        isInStock
+                                    }
+                                    prices {
+                                        price {
+                                            value
+                                        }
+                                    }
+                                    options {
+                                        edges {
+                                            node {
+                                                displayName
+                                                values {
+                                                    edges {
+                                                        node {
+                                                            label
+                                                            entityId
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }`,
+                }),
+            })
+                .then((res) => res.json())
+                .then((json) => {
+                    var name = json.data.site.product.name;
+                    var id = json.data.site.product.entityId;
+                    var path = json.data.site.product.path;
+                    var prices = json.data.site.product.variants.edges.map(edge => edge.node.prices.price.value);
+                    var labels = json.data.site.product.variants.edges.map(edge => edge.node.options.edges.map(edge => edge.node.values.edges.map(edge => edge.node.label)));
+                    var description = json.data.site.product.plainTextDescription;
+                    var skus = json.data.site.product.variants.edges.map(edge => edge.node.sku);
+                    var image = json.data.site.product.defaultImage.urlOriginal;
+                    var variants = [];
+                    var x = labels.map(label => label[0][0]);
+                    for (var i = 0; i < x.length; i++) {
+                        variants.push({ price: prices[i], label: x[i], sku: skus[i] });
+                    }
+                    graphObj = { name, variants, description, path };
+
+                    document.getElementById('results-title').innerHTML = name;
+                    document.getElementById('results-description').innerHTML = description;
+                    document.getElementById('results-img').src = image;
+                    document.getElementById('results-img').alt = name;
+
+                    document.getElementById('view-product').setAttribute('data-product-id', productId);
+                });
+        }
+    </script>
+
+    <!-- PREVIOUS BUTTON -->
+    <script>
+        var progressSteps = document.querySelectorAll(".progress-step__number");
+        var prevBtn = document.getElementById('previous');
+        var currentTab = 0; // Current tab is set to be the first tab (0)
+        showTab(currentTab); // Display the current tab
+        
+        
+
+        function nextWindow() {
+            prevBtn.style.display = "flex";
+            // This function will figure out which tab to display
+            var window = document.getElementsByClassName("tab");
+
+            // Hide the current tab:
+            window[currentTab].style.display = "none";
+            // Increase or decrease the current tab by 1:
+            currentTab += 1;
+
+            showTab(currentTab);
+            document.getElementById('instruction_steps').scrollIntoView({
+                behavior: "smooth"
+            });
+            progressSteps[currentTab - 1].innerHTML = "&check;";
+            progressSteps[currentTab - 1].classList.add("completed-step");
+        }
+        
+
+        function showTab(n) {
+            // This function will display the specified tab of the form ...
+            var x = document.querySelectorAll(".tab");
+            x[n].style.display = "flex";
+            progressSteps[n].classList.add("active-step");
+            if (currentTab == 0) prevBtn.style.display = "none";
+            
+            
+            // previousButton();
+        }
+
+        function previousButton() {
+            // This function will figure out which tab to display
+            var x = document.querySelectorAll(".tab");
+            // Exit the function if any field in the current tab is invalid:
+            //if (n == 1) return false;
+            // Hide the current tab:
+            x[currentTab].style.display = "none";
+            if (currentTab == 0) prevBtn.style.display = "none";
+
+            if (currentTab != 0) currentTab -= 1;
+            showTab(currentTab);
+
+            progressSteps[currentTab].classList.remove("completed-step");
+            progressSteps[currentTab + 1].classList.remove("active-step");
+            progressSteps[currentTab].innerHTML = currentTab + 1;
+
+            // document.querySelectorAll(".progress-step")[currentTab].className.replace(" active-step", "");
+
+            // Otherwise, display the correct tab:
+            
+
+            document.getElementById('inclusion').innerHTML = '';
+            if (selectedProject != 2) {
+                document.getElementById('visual').style.visibility = "hidden";
+            } else {
+                document.getElementById('visual').style.visibility = "visible";
+            }
+
+            var currentShape = document.querySelector('.selectedShape');
+            if (currentShape) currentShape.classList.remove('selectedShape');
+
+            document.querySelectorAll('.calc-project__cards .calc-card').forEach(card => {
+                if (card.classList.contains('selectedProject')) {
+                    card.classList.remove("selectedProject");
+                }
+            });
+
+            document.querySelectorAll('.calc-products__cards .calc-card').forEach(card => {
+                if (card.classList.contains('selectedProduct')) {
+                    card.classList.remove("selectedProduct");
+                }
+            });
+
+            document.querySelectorAll('.input-wrapper input[type="number"]').forEach(input => {
+                input.value = '';
+            });
+        }
+/*
+        function nextPrev(n) {
+            // document.getElementById("prevBtn").addEventListener('click', function() {
+            //     document.querySelectorAll(".progress-step")[currentTab].className.replace(" active-step", "");
+            // });
+
+
+            // This function will figure out which tab to display
+            var x = document.getElementsByClassName("tab");
+            // Exit the function if any field in the current tab is invalid:
+            //if (n == 1) return false;
+            // Hide the current tab:
+            x[currentTab].style.display = "none";
+            // Increase or decrease the current tab by 1:
+            currentTab += n;
+
+            document.querySelectorAll(".progress-step")[currentTab].className.replace(" active-step", "");
+            // Otherwise, display the correct tab:
+            showTab(currentTab);
+
+            console.log("Current tab: ", currentTab, "Selected project: ", selectedProject);
+            document.getElementById('inclusion').innerHTML = '';
+            if (selectedProject != 2) {
+                document.getElementById('visual').style.display = "none";
+            } else {
+                document.getElementById('visual').style.display = "flex";
+            }
+
+            var currentShape = document.querySelector('.selectedShape');
+            if (currentShape) currentShape.classList.remove('selectedShape');
+        }
+
+        function fixStepIndicator(n) {
+            // This function removes the "active" class of all steps...
+            // var i, x = document.getElementsByClassName("step");
+            var i, x = document.querySelectorAll(".progress-step");
+            for (i = 0; i < x.length; i++) {
+                // x[i].className = x[i].className.replace(" active", "");
+                // x[i].className = x[i].className.replace(" active-step", "");
+            }
+            //... and adds the "active" class to the current step:
+            // x[n].className += " active";
+            x[n].className += " active-step";
+            x[n].innerHTML = '&check;';
+        }
+*/
+            
+        
+    </script>
+
+    {{/partial}}
+
+    {{> layout/base}}

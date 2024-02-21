@@ -1,0 +1,115 @@
+{{#partial "page"}}
+
+{{#if banners.top}}
+    <div class="banners" data-banner-location="top">
+        {{#each (limit banners.top_metadata 1)}}
+        <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+            <div data-event-type="promotion-click">
+                {{{this.content}}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
+
+<div class="container">
+    <main class="page">
+    
+        <div class="page-content">
+            {{#replace '%%Syndicate%%' page.content}}
+                {{> components/page/rss_feed}}
+            {{else}}
+                {{{page.content}}}
+            {{/replace}}
+        </div>
+    
+        {{#if page.feed}}
+            <ul>
+                {{#each page.feed}}
+                    <li>
+                        <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+                        <p>{{content}}</p>
+                    </li>
+                {{/each}}
+            </ul>
+        {{/if}}
+    </main>
+</div>
+
+{{/partial}}
+
+{{> layout/base}}
+
+<script type="text/javascript">
+var n,o,p,a,b,c,s,r;
+ function setValue()
+ {
+  n = Number(document.getElementById("n").value);
+  o = Number(document.getElementById("o").value);
+  p = Number(document.getElementById("p").value);
+  a = Number(document.getElementById("a").value);
+  b = Number(document.getElementById("b").value);
+  c = Number(document.getElementById("c").value);
+ }
+
+
+ function multPart()
+ {
+	 setValue();
+	 var result1 = a*b*c;
+	 document.getElementById("boxvol").value = +result1.toFixed(3);
+	 var result2 = n*o*p;
+	 document.getElementById("partvol").value = +result2.toFixed(3);
+	 result = result1-result2;
+	 document.getElementById("netvolume").value = +result.toFixed(3);
+         s =  Number(document.getElementById("netvolume").value);
+          r = Number(document.getElementById("partvol").value);
+          var amtNeedSil = s*21;
+          var amtNeedSilLb = s*21*.00220462262;
+          var amtNeedCas = r*.554;
+          var amtNeedCasg=(r*.554)/128;
+          document.getElementById("amt-sil").value = +amtNeedSil.toFixed(3);
+          document.getElementById("amt-silb").value = +amtNeedSilLb.toFixed(3);
+          document.getElementById("amt-cas").value = +amtNeedCas.toFixed(3);
+          document.getElementById("amt-casg").value=+amtNeedCasg.toFixed(3);
+ }
+
+
+ var r,g,h,i,e,sr, cr;
+ function setValues()
+ {
+  e = Number(document.getElementById("e").value);
+  r = Number(document.getElementById("r").value);
+  g = Number(document.getElementById("g").value);
+  h = Number(document.getElementById("h").value);
+ }
+
+  function multPartCyl() {
+	  setValues();
+	  var x = Math.PI;
+          var y = Math.pow((r/2),2);
+          var y2 = Math.pow((g/2),2);
+	  var result5 = x*y*e;
+ 	  document.getElementById("cyl-res").value = +result5.toFixed(3);
+	  var result4 = x*y2*h;
+	  document.getElementById("partvol-cyl").value = +result4.toFixed(3);
+	  result = result5-result4;
+	  document.getElementById("cyl-net").value = +result.toFixed(3);
+          sr = Number(document.getElementById("cyl-net").value);
+          cr = Number(document.getElementById("partvol-cyl").value);
+          var amtNeedCyl = sr*21;
+          var amtNeedCylb = sr*21*.00220462262;
+          var amtNeedRec = cr*.554;
+          var amtNeedRecg = (cr*.554)/128;
+          document.getElementById("amt-cas").value = +amtNeedRec.toFixed(3);
+          document.getElementById("amt-casg").value = +amtNeedRecg.toFixed(3);
+          document.getElementById("amt-sil").value = +amtNeedCyl.toFixed(3);
+          document.getElementById("amt-silb").value = +amtNeedCylb.toFixed(3);
+  }
+  multPartCyl();
+  
+</script>
+<script>
+    fbq('track', 'PageView', {eventID: 'AL_{{settings.client_ip_address}}'});
+  </script>
+  

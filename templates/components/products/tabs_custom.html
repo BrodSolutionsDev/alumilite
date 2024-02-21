@@ -1,0 +1,176 @@
+<div class="container 4661726c6579">
+    <!-- Both Custom Fields and Warranty (MSDS) -->
+    {{#and product.custom_fields product.warranty}}
+    <div>
+            <div class="flex flex-top bg-black custom-fields">
+                <div class="flex-50">
+                    <h4>Technical Specifications</h4>
+                    <dl class="productView-info">
+                    {{#each product.custom_fields}}
+                        {{#startsWith '__' name}}
+                        {{else}}
+                            <div>
+                                <dt class="productView-info-name">{{name}}:</dt>
+                                <dd class="productView-info-value">{{{value}}}</dd>
+                            </div>
+                        {{/startsWith}}
+                    {{/each}}
+                    </dl>
+                </div>
+                {{#if product.warranty}}
+                <div class="flex-50 more-info">
+                    <h4>More Information</h4>
+                    <p style="margin-bottom: 0">Prior to using product, please read all Technical Data, Safety Data, and Instruction sheets linked below.</p>
+                    <div class="flex flex-top">
+                        <div class="flex-50">
+                        <span class="text-center">{{{product.warranty}}}</span>
+                    </div>
+                        <div class="flex-50">
+                        <span class="text-center"><div class="msds"><img src="https://cdn11.bigcommerce.com/s-2yiip5r05b/stencil/e061c960-6dac-013a-2166-2a7c38320ca3/e/1102e770-6ff6-013a-d88f-02bb2b47ce59/img/calculator-icon.png" /></div><p><a href="/volume-calculator">Volume Calculator</a></p></span>
+                    </div>
+                </div>
+                </div>
+                {{/if}}
+            </div>
+    </div>
+<!-- Only Warranty (MSDS) -->
+    {{else}}
+    {{#if product.warranty}}
+    <div>
+        <div class="flex flex-top bg-black custom-fields">
+            <div class="flex-75 more-info">
+                <h4>More Information</h4>
+                <p>Prior to using product, please read all Technical Data, Safety Data, and Instruction sheets linked below.</p>
+                <div class="flex flex-top">
+                    <div class="flex-50">
+                    <div class="text-center">{{{product.warranty}}}</div>
+                </div>
+                    <div class="flex-50">
+                    <div class="text-center"><div class="msds"><img src="https://cdn11.bigcommerce.com/s-2yiip5r05b/stencil/e061c960-6dac-013a-2166-2a7c38320ca3/e/1102e770-6ff6-013a-d88f-02bb2b47ce59/img/calculator-icon.png" /></div><p><a href="/volume-calculator">Volume Calculator</a></p></div>
+                </div>
+            </div>
+            </div>
+        </div>
+</div>
+{{/if}}
+    {{/and}}
+
+    
+
+    {{#if product.videos}}
+    {{#or product.description product.videos.list.length}}
+        <div id="product-videos">
+            {{#if widgetId}}
+            <h2 class="text-center">See It In Use</h2>
+            <div id="pixlee_container"></div > <script type = "text/javascript">Pixlee.renderFrame(); </script>
+            {{/if}}
+            <h2 class="text-center" style="margin: 50px 0">How To</h2>
+            <div>
+                {{#if product.videos.list.length}}
+                    {{> components/products/videos_custom product.videos}}
+                {{/if}}
+            </div>
+        </div>
+    {{/or}}
+    {{/if}}
+    
+</div>
+
+{{#and product.related_products theme_settings.related_products_tab}}
+    <div class="accordion-block">
+        <div class="container">
+            <div
+                class="accordion-navigation toggleLink"
+                role="button"
+                data-collapsible="#accordion--related">
+                <h5 class="accordion-title">
+                    {{lang 'products.related_products'}}
+                </h5>
+        
+                <div class="accordion-navigation-actions">
+                    <svg class="icon accordion-indicator toggleLink-text toggleLink-text--off">
+                        <use xlink:href="#icon-plus" />
+                    </svg>
+                    <svg class="icon accordion-indicator toggleLink-text toggleLink-text--on">
+                        <use xlink:href="#icon-minus" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    
+        <div id="accordion--related" class="accordion-content">
+            <div class="grid-bg">
+                <div class="container">
+                    {{> components/products/related products=product.related_products columns=6}}
+                </div>
+            </div>
+        </div>
+    </div>
+{{/and}}
+
+{{#and product.similar_by_views theme_settings.customer_viewed_products_tab}}
+    <div class="accordion-block">
+        <div class="container">
+            <div
+                class="accordion-navigation toggleLink"
+                role="button"
+                data-collapsible="#accordion--similar">
+                <h5 class="accordion-title">
+                    {{lang 'products.similar_by_views'}}
+                </h5>
+        
+                <div class="accordion-navigation-actions">
+                    <svg class="icon accordion-indicator toggleLink-text toggleLink-text--off">
+                        <use xlink:href="#icon-plus" />
+                    </svg>
+                    <svg class="icon accordion-indicator toggleLink-text toggleLink-text--on">
+                        <use xlink:href="#icon-minus" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    
+        <div id="accordion--similar" class="accordion-content">
+            <div class="grid-bg">
+                <div class="container">
+                    {{> components/products/similar-by-views products=product.similar_by_views columns=6}}
+                </div>
+            </div>
+        </div>
+    </div>
+{{/and}}
+
+<script>
+    const allSds = document.querySelectorAll(".sds");
+    const allTds = document.querySelectorAll(".tds");
+    let noVisibleSds = false;
+    let noVisibleTds = false;
+
+    const hideFlex50 = document.querySelector('.more-info .flex .flex-50');
+    for (sds of allSds) {
+        if (sds.innerText === "Safety Data Sheet") {
+            sds.style.display = "none";
+        }
+        if (sds.style.display == "none") {
+            noVisibleSds = true;
+        } else {
+            noVisibleSds = false;
+        }
+    }
+
+    for (tds of allTds) {
+        if (tds.innerText === "Technical Data Sheet") {
+            tds.style.display = "none";
+            tds.parentElement.nextElementSibling.style.marginTop = "-80px"
+        }
+        if (tds.style.display == "none") {
+            noVisibleTds = true;
+        } else {
+            noVisibleTds = false;
+        }
+    }
+    
+    if (noVisibleSds && noVisibleTds) {
+        document.querySelector(".more-info .flex .flex-50").style.display = "none"
+    }
+</script>

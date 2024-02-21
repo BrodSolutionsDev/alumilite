@@ -1,0 +1,432 @@
+@import "variables";
+#academy-main {
+  width: 100%;
+  height: 100%;
+  margin-top: -40px;
+  padding: 0px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  color: $white;
+  -webkit-text-size-adjust: none;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  p {
+    font-family: sans-serif;
+  }
+  .course-button {
+    background-color: transparent;
+    border: solid $red 2px;
+    color: $red;
+    cursor: pointer;
+    @media only screen and (max-device-width: 800px) {
+      margin: 10px;
+      background-color: white;
+    }
+  }
+
+  .academy-cta {
+    justify-content: left;
+    background-image: url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/landingpage-headerphoto-v6.jpg?t=1654882092&_gl=1*1yotflz*_ga*MTQ0NTgwODY2NC4xNjQ4NDg1Mzg4*_ga_WS2VZYPC6G*MTY1NDg4NDE0Ny4xNTkuMS4xNjU0ODg0MTQ4LjU5");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 700px;
+    -webkit-text-size-adjust: none;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    @media only screen and (max-device-width: 800px) {
+      margin: 0;
+      padding: 0;
+      justify-content: center;
+      height: 100%;
+    }
+    .academy-cta-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      -webkit-text-size-adjust: none;
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      @media only screen and (max-device-width: 800px) {
+        margin: 30px auto;
+        padding: 0;
+        justify-content: center;
+      }
+    }
+    .academy-cta-text {
+      margin-top: 100px;
+      margin-left: 70px;
+      margin-bottom: 50px;
+      -webkit-text-size-adjust: none;
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      padding: 0;
+      width: 50%;
+      @media only screen and (max-device-width: 800px) {
+        margin: 10px;
+        width: 100%;
+      }
+      .academy-cta-header {
+        color: black;
+      }
+
+      .academy-cta-body {
+        max-width: 65%;
+        // color: white;
+        text-transform: none;
+        margin-bottom: 19px;
+        -webkit-text-size-adjust: none;
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+        @media only screen and (max-device-width: 800px) {
+          min-width: 100%;
+          margin: 0;
+          padding: 0;
+          justify-content: center;
+        }
+      }
+    }
+  }
+    #cta-info-block {
+      display: grid;
+      grid-gap: 1%;
+      grid-template-columns: 3;
+      margin: 0 auto;
+      padding: 0;
+      -webkit-text-size-adjust: none;
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      @media only screen and (max-device-width: 800px) {
+        min-width: 100%;
+        // margin: 10px;
+        padding: 0;
+        justify-content: center;
+      }
+      h2 {
+        // color: white;
+        text-transform: none;
+        margin-bottom: 5px;
+        line-height: 2rem;
+      }
+
+      .cta-info-container {
+        display: flex;
+        align-content: center;
+        max-width: 1300px;
+        max-width: 1300px;
+        margin: 0 auto;
+
+        @media only screen and (max-device-width: 800px) {
+          margin: 0;
+          padding: 0;
+        }
+
+        .info-card {
+          width: 325px;
+          height: 195px;
+          margin: 30px;
+          word-wrap: break-word;
+          overflow: auto;
+          .line {
+            width: 50px;
+            height: 5px;
+            background-color: $red;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            @media only screen and (max-device-width: 800px) {
+              justify-content: center;
+              align-items: center;
+              justify-items: center;
+              text-align: center;
+              margin: auto;
+              padding: 0;
+            }
+          }
+          @media only screen and (max-device-width: 800px) {
+            justify-content: center;
+            align-items: center;
+            justify-items: center;
+            text-align: center;
+            margin: 0;
+            -webkit-text-size-adjust: none;
+            -webkit-box-flex: 1;
+            -moz-box-flex: 1;
+          }
+        }
+      }
+    }
+    @media only screen and (max-device-width: 800px) {
+      margin-top: 10px;
+      justify-content: center;
+      text-align: center;
+      -webkit-text-size-adjust: none;
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+    }
+
+  #courses {
+    scroll-margin-top: -120px;
+    .course-container {
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      max-width: 1300px;
+      height: 750px;
+      @media only screen and (max-device-width: 800px) {
+        padding: 0;
+        text-align: center;
+        height: 100%;
+        -webkit-text-size-adjust: none;
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+      }
+
+      .course-header {
+        display: flex;
+        padding-left: 70px;
+        padding-top: 20px;
+        justify-content: center;
+
+        @media only screen and (max-device-width: 800px) {
+          padding: 0;
+          text-align: center;
+          -webkit-text-size-adjust: none;
+          -webkit-box-flex: 1;
+          -moz-box-flex: 1;
+        }
+      }
+      .course-card-wrapper {
+        margin: 0 0 0 30px;
+        padding: 10px;
+        justify-content: center;
+        -webkit-text-size-adjust: none;
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+        @media only screen and (max-device-width: 800px) {
+          justify-content: center;
+          // height: 500px;
+          padding: 0;
+          margin: 0;
+          -webkit-text-size-adjust: none;
+          -webkit-box-flex: 1;
+          -moz-box-flex: 1;
+        }
+
+        .course-card {
+          background-image: url("");
+          height: 500px;
+          width: 350px;
+          display: flex;
+          flex-direction: column;
+          justify-content: end;
+          text-align: left;
+          box-shadow: 0px 4px 20px 5px rgba(0, 0, 0, 0.4);
+          border-radius: 4px;
+          margin: 30px;
+          -webkit-text-size-adjust: none;
+          -webkit-box-flex: 1;
+          -moz-box-flex: 1;
+          .course-card-text {
+            padding: 15px;
+            height: 50%;
+            font: $fontFamily-sans;
+            justify-content: flex-end;
+            -webkit-text-size-adjust: none;
+            -webkit-box-flex: 1;
+            -moz-box-flex: 1;
+            @media only screen and (max-device-width: 800px) {
+              text-align: center;
+              -webkit-text-size-adjust: none;
+              -webkit-box-flex: 1;
+              -moz-box-flex: 1;
+
+            }
+
+            h4,
+            h6,
+            p {
+              margin-top: 0;
+              color: black;
+              margin-bottom: 10px;
+            }
+            p {
+              height: 60px;
+              margin-bottom: 10px;
+            }
+            .button {
+              bottom: 0;
+            }
+          }
+        }
+        @media only screen and (max-device-width: 800px) {
+          margin: 0;
+          -webkit-text-size-adjust: none;
+          -webkit-box-flex: 1;
+          -moz-box-flex: 1;
+        }
+
+        .mold-card {
+          background-image: url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/mmb-coursethumbnail-v4.jpg?t=1654878912&_gl=1*qhmqi9*_ga*MTQ0NTgwODY2NC4xNjQ4NDg1Mzg4*_ga_WS2VZYPC6G*MTY1NDg3NzQ1MS4xNTguMS4xNjU0ODc4OTE3LjU4");
+          background-size: cover;
+          // background-position: center;
+          background-repeat: no-repeat;
+          background-color: white;
+
+
+        }
+        .simple-card {
+          background-image: url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/s1pm-coursethumbnail-v3.jpg?t=1654877572&_gl=1*1v73ytt*_ga*MTQ0NTgwODY2NC4xNjQ4NDg1Mzg4*_ga_WS2VZYPC6G*MTY1NDg3NzQ1MS4xNTguMS4xNjU0ODc3NjQzLjU5");
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+
+        }
+      }
+      @media only screen and (max-device-width: 800px) {
+        text-align: center;
+        margin: 0;
+        justify-content: center;
+        -webkit-text-size-adjust: none;
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+      }
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+
+  #product-cta {
+    margin-bottom: 50px;
+    .product-cta-container {
+      background-image: url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/landingpage-featuredcoursesection-v2.jpg?t=1654713399&_gl=1*vh4uks*_ga*MTQ0NTgwODY2NC4xNjQ4NDg1Mzg4*_ga_WS2VZYPC6G*MTY1NDcxMzI1Mi4xNTUuMS4xNjU0NzEzNDA0LjU4");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 700px;
+      // width: 100%;
+      align-items: center;
+      justify-content: flex-start;
+      @media only screen and (max-device-width: 800px) {
+        min-width: 100%;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        margtin-top: 120px;
+      }
+
+      .product-cta-wrapper {
+        max-width: 1300px;
+        margin: 0 auto auto auto;
+      }
+      .product-cta-text {
+        flex-direction: column;
+        width: 40%;
+        max-width: 1300px;
+        margin-left: 50px;
+
+        @media only screen and (max-device-width: 800px) {
+          justify-content: center;
+          text-align: center;
+          padding: 0;
+          width: 100%;
+          margin: auto;
+        }
+
+        h5 {
+          text-transform: none;
+        }
+        @media only screen and (max-device-width: 800px) {
+          width: 100%;
+          padding: 15px;
+        }
+
+        .button {
+          margin-top: 50px;
+        }
+
+        @media only screen and (max-device-width: 800px) {
+          justify-content: center;
+          text-align: center;
+          padding: 0;
+        }
+      }
+      @media only screen and (max-device-width: 800px) {
+        text-align: center;
+        h2 {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  .featured-section {
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+  }
+  .featured-container {
+    align-items: center;
+  }
+
+  #instructor-about {
+    background-color: $grey;
+    margin-top: 60px;
+    .instructor-container {
+      padding: 30px;
+
+      .instructor-wrapper {
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+      .instructor-card {
+        background-color: black;
+        border-radius: 4px;
+        height: 500px;
+        width: 405px;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        text-align: left;
+        box-shadow: 0px 4px 20px 5px rgba(0, 0, 0, 0.1);
+        background-image: url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/academylandingpage-instructorphoto.jpg?t=1653666809&_gl=1*jkbx3i*_ga*MTQ0NTgwODY2NC4xNjQ4NDg1Mzg4*_ga_WS2VZYPC6G*MTY1MzY2NjcwNi4xMjYuMS4xNjUzNjY3MTU4LjU4");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        .instructor-card-text {
+          padding: 10px;
+
+          h4,
+          h6 {
+            color: white;
+            margin: 0;
+          }
+        }
+        @media only screen and (max-device-width: 800px) {
+          text-align: center;
+        }
+      }
+
+      .instructor-body {
+        h5 {
+          text-transform: none;
+        }
+        @media only screen and (max-device-width: 800px) {
+          text-align: center;
+          padding: 0px 15px 15px 15px;
+        }
+      }
+      @media only screen and (max-device-width: 800px) {
+        padding: 0;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.klaviyo {
+  background-color: rgb(38, 50, 56);
+  margin: 0;
+  color: white;
+}

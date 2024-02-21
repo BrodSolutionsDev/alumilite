@@ -1,0 +1,117 @@
+{{#partial "page"}} {{#if banners.top}}
+<div class="banners" data-banner-location="top">
+  {{#each (limit banners.top_metadata 1)}}
+  <div
+    class="banner"
+    data-event-type="promotion"
+    data-entity-id="{{this.id}}"
+    data-name="{{this.banner-name}}"
+    data-position="{{this.location}}"
+    data-banner-id="{{this.banner-name}}"
+  >
+    <div data-event-type="promotion-click">
+      {{{this.content}}}
+    </div>
+  </div>
+  {{/each}}
+</div>
+{{/if}}
+
+<div class="container-fluid">
+  <main class="page">
+    <div class="page-content">
+      {{#replace '%%Syndicate%%' page.content}} {{> components/page/rss_feed}}
+      {{else}} {{{page.content}}} {{/replace}}
+    </div>
+
+    {{#if page.feed}}
+    <ul>
+      {{#each page.feed}}
+      <li>
+        <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+        <p>{{content}}</p>
+      </li>
+      {{/each}}
+    </ul>
+    {{/if}}
+  </main>
+</div>
+
+{{/partial}} {{> layout/base}}
+
+
+<script type="text/javascript">
+function changeACC8oz() {
+  document.getElementById("acc-price").innerHTML="$16.00";
+  document.getElementById("acc-addtocart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10589&source=amazing_page";
+}
+function changeACC16oz() {
+  document.getElementById("acc-price").innerHTML="$20.00";
+  document.getElementById("acc-addtocart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10590&source=amazing_page";
+}
+function changeACC32oz() {
+  document.getElementById("acc-price").innerHTML="$30.00";
+  document.getElementById("acc-addtocart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10591&source=amazing_page";
+}
+function changeACC1gal() {
+  document.getElementById("acc-price").innerHTML="$80.00";
+  document.getElementById("acc-addtocart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10592&source=amazing_page";
+}
+function changeACC2gal() {
+  document.getElementById("acc-price").innerHTML="$114.50";
+  document.getElementById("acc-addtocart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10145&source=amazing_page";
+}
+
+function changeAMP23lb() {
+  document.getElementById("amp-price").innerHTML="$20.00";
+  document.getElementById("amp-addtocart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10570&source=amazing_page";
+}
+function changeAMP3lb() {
+  document.getElementById("amp-price").innerHTML="$58.00";
+  document.getElementById("amp-addtocart").href="https://www.alumilite.com/cart.php?action=add&sku=AL20203&source=amazing_page";
+}
+function changeAMP6lb() {
+  document.getElementById("amp-price").innerHTML="$108.00";
+  document.getElementById("amp-addtocart").href="https://www.alumilite.com/cart.php?action=add&sku=AL20206&source=amazing_page";
+}
+function changeAMP20lb() {
+  document.getElementById("amp-price").innerHTML="$300.00";
+  document.getElementById("amp-addtocart").href="https://www.alumilite.com/cart.php?action=add&sku=AL20220&source=amazing_page";
+}
+
+function changeAR625lb() {
+  document.getElementById("ar-price").innerHTML="$20.00";
+  document.getElementById("ar-addtocart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10594&source=amazing_page";
+}
+function changeAR125lb() {
+  document.getElementById("ar-price").innerHTML="$36.00";
+  document.getElementById("ar-addtocart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10595&source=amazing_page";
+}
+function changeAR25lb() {
+  document.getElementById("ar-price").innerHTML="$60.00";
+  document.getElementById("ar-addtocart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10596&source=amazing_page";
+}
+function changeAR75lb() {
+  document.getElementById("ar-price").innerHTML="$135.00";
+  document.getElementById("ar-addtocart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10597&source=amazing_page";
+}
+function changeACCP16oz() {
+  document.getElementById("accp-price").innerHTML="$25.00";
+  document.getElementById("accp-addtocart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10601&source=amazing_clear_cast_plus_page";
+}
+function changeACCP32oz() {
+  document.getElementById("accp-price").innerHTML="$40.00";
+  document.getElementById("accp-addtocart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10602&source=amazing_clear_cast_plus_page";
+}
+function changeACCP1gal() {
+  document.getElementById("accp-price").innerHTML="$95.00";
+  document.getElementById("accp-addtocart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10603&source=amazing_clear_cast_plus_page";
+}
+function changeACCP2gal() {
+  document.getElementById("accp-price").innerHTML="$159.00";
+  document.getElementById("accp-addtocart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10604&source=amazing_clear_cast_plus_page";
+}
+ </script>
+ <script>
+  fbq('track', 'PageView',{eventID: 'AL_{{settings.client_ip_address}}'});
+</script>

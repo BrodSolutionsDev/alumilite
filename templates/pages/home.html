@@ -1,0 +1,224 @@
+---
+products:
+  new:
+    limit: { { theme_settings.homepage_new_products_count } }
+  featured:
+    limit: { { theme_settings.homepage_featured_products_count } }
+  top_sellers:
+    limit: { { theme_settings.homepage_top_products_count } }
+carousel: { { theme_settings.homepage_show_carousel } }
+blog:
+  recent_posts:
+    limit: { { theme_settings.homepage_blog_posts_count } }
+---
+
+{{#partial "hero"}} 
+{{#if carousel}} 
+{{> components/carousel arrows=theme_settings.homepage_show_carousel_arrows play_pause_button=theme_settings.homepage_show_carousel_play_pause_button}}
+{{/if}}
+<!--<div class="mobile-carousel" style="display:none; padding-top: 10px;">
+  <div id="carousel-inner" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay":true, "arrows": false, "dots":false, "speed":1000, "autoplaySpeed": 15000 }'>
+      <a href="https://www.alumilite.com/blog/furniture-restoration-and-home-decor-with-brushed-restorations">
+          <img title="" src="https://cdn11.bigcommerce.com/s-2yiip5r05b/images/stencil/original/image-manager/makers-banner.png?t=1699017081" alt="" />
+      </a>
+      <a href="https://www.alumilite.com/products/alumilite-amazing-resin-remover/">
+          <img title="" src="https://cdn11.bigcommerce.com/s-2yiip5r05b/images/stencil/original/image-manager/breakitdown.png?t=1696444892" alt="" />
+      </a>
+      <a href="https://www.alumilite.com/greenland-gift-pack-12-pack/">
+          <img title="" src="https://cdn11.bigcommerce.com/s-2yiip5r05b/images/stencil/original/image-manager/image001.png?t=1693939541&_gl=1*1t88ixy*_ga*NTM1MTk3MDM2LjE2OTMzMTM1NDA.*_ga_WS2VZYPC6G*MTY5MzkzNjI0OS4yMS4xLjE2OTM5Mzk4NTIuNDkuMC4w" alt="" />
+      </a>
+      <a href="https://www.alumilite.com/products/">
+          <img title="" src="https://cdn11.bigcommerce.com/s-2yiip5r05b/images/stencil/original/image-manager/image002.png?t=1693939542&_gl=1*1t88ixy*_ga*NTM1MTk3MDM2LjE2OTMzMTM1NDA.*_ga_WS2VZYPC6G*MTY5MzkzNjI0OS4yMS4xLjE2OTM5Mzk4NTIuNDkuMC4w" alt="" />
+      </a>
+      <a href="https://www.alumilite.com/products">
+          <img title="" src="https://cdn11.bigcommerce.com/s-2yiip5r05b/images/stencil/original/image-manager/image004.png?t=1693939542&_gl=1*jsmwlk*_ga*NTM1MTk3MDM2LjE2OTMzMTM1NDA.*_ga_WS2VZYPC6G*MTY5MzkzNjI0OS4yMS4xLjE2OTM5Mzk4NTIuNDkuMC4w" alt="" />
+      </a>
+      <a href="https://www.alumilite.com/products/resins/amazing-quick-coat/">
+          <img title="" src="https://cdn11.bigcommerce.com/s-2yiip5r05b/images/stencil/original/image-manager/aqc-10-.jpg?t=1691585445&_gl=1*1krvmdj*_ga*MTkxMjc4NTk4OC4xNjQ1MzA0Nzcz*_ga_WS2VZYPC6G*MTY5MTU4NTMwNy4xMDAwLjEuMTY5MTU4NTY2OC42MC4wLjA." alt="" />
+      </a>
+      <a href="https://www.alumilite.com/greenland-gift-pack-12-pack/">
+          <img title="" src="https://cdn11.bigcommerce.com/s-2yiip5r05b/images/stencil/original/image-manager/3.png?t=1679067150" alt="" />
+      </a>
+  </div>
+</div>-->
+ <div style="min-height: 600px">{{{region name="home_below_menu"}}}</div> {{#if banners.top}}
+<div class="banners" data-banner-location="top">
+  {{#each (limit banners.top_metadata 1)}}
+  <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+    <div data-event-type="promotion-click">{{{this.content}}}</div>
+  </div>
+  {{/each}}
+</div>
+{{/if}}
+<!--<p style="text-align:center;"><a style="color: #f9423a; font-size: 20px;" href="https://www.polytek.com/important-message-COVID-19" target="_blank">COVID-19 JANUARY 2021 UPDATE.</a></p>-->
+
+{{{snippet 'home_content'}}} {{{ region name="home_below_carousel" }}} {{/partial}} {{#partial "page"}} {{#each shipping_messages}} {{> components/common/alert-info message}} {{/each}}
+<div class="container-fluid">
+  <div id="hero-top" class="hero" style="display: none !important">
+    <h1 style="display: none">Alumilite Corporation - Mold Making &amp; Casting Resins</h1>
+    <h2>
+      Freedom<br />
+      to make<br /><span class="flood">what you want</span>
+    </h2>
+    <!--<p><a class="button" href="https://www.youtube.com/user/AlumiliteCorporation" target="_blank">SEE HOW</a></p>-->
+  </div>
+
+  <div class="main full grid-bg">
+    <div class="container">
+      {{#if products.featured}} {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}} {{/if}}
+      <!--{{{region name="home_below_featured_products"}}}-->
+
+      <!--{{#if products.top_sellers}}-->
+      <!--    {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}-->
+      <!--{{/if}}-->
+      <!--{{{region name="home_below_top_products"}}}-->
+
+      <!--{{#if products.new}}-->
+      <!--    {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}-->
+      <!--{{/if}}-->
+    </div>
+  </div>
+
+  <!-- Amazing Mold Maker -->
+  <div class="bg-white flex">
+    <div class="flex-50">
+      <strong>NEW PRODUCTS!</strong>
+      <h3>Amazing Mold Maker</h3>
+      <p>
+        Amazing Mold Maker is an easy-to-use platinum-based silicone mold-making material that demolds in 30 minutes and picks up intricate details. Amazing Mold Maker is ideal for highly-detailed,
+        fast-curing molds.
+      </p>
+      <p>Create castings with epoxy, resin, concrete, candles, soaps, chocolate, and more!</p>
+      <a class="button" href="https://www.alumilite.com/products/amazing-line/amazing-mold-maker/?showHidden=true">VIEW PRODUCT PAGE</a>
+    </div>
+    <div class="flex-50">
+      <div class="flex-video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Ft9TaUt0Q6o?si=habAolJtW4-v_REq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+   <!--Amazing Quick Coat -->
+  <div class="bg-grey flex-reverse flex">
+    <div class="flex-50">
+      <div class="flex-video" data-embed-youtube="8pzl3Fu9G4Y"></div>
+    </div>
+    <div class="flex-50">
+      <h3>Amazing Quick Coat</h3>
+      <p>Amazing Quick Coat is an easy to use 2-part epoxy that cures to a durable, high-gloss finish that is FDA compliant when accurately measured, properly mixed, and fully cured.</p>
+      <p>This quick curing formula is tack-free in as little as 4 hours at 75°F.</p>
+      <a class="button" href="https://www.alumilite.com/products/resins/amazing-quick-coat/">VIEW PRODUCT PAGE</a>
+    </div>
+  </div>
+  {{{ region name="panel 1" }}}
+  <!-- Amazing Deep Pour-->
+  <!--<div class="bg-white flex">-->
+  <div>
+      <div id="pixlee_container"></div > <script type = "text/javascript">Pixlee.renderFrame(); </script>
+    <!--<div class="flex-50 deep-pour">-->
+    <!--  <h3>Amazing Deep Pour</h3>-->
+    <!--  <p>Ready to cast deeper and clearer than ever before? Introducing Amazing Deep Pour epoxy - turn it, cast it, use it to coat. The possibilities are endless!</p>-->
+    <!--  <p>-->
+    <!--    Amazing Deep Pour is ideal for river tables, resin blanks for lathe turning, filling wide gaps in wood, or any application requiring a depth greater than 3/8 inch. ADP can also be layered for-->
+    <!--    projects requiring thicknesses beyond 2 inches.-->
+    <!--  </p>-->
+    <!--  <a class="button" href="https://www.alumilite.com/products/amazing-deep-pour/">VIEW PRODUCT PAGE</a> <a class="button bg-black" href="https://www.alumilite.com/amazingdeeppour/">LEARN MORE</a>-->
+    <!--</div>-->
+    <!--<div class="flex-50">-->
+    <!--  <div class="flex-video" data-embed-youtube="Z3K4vD4-Lng"></div>-->
+    <!--</div>-->
+  </div>
+  {{{ region name="panel 2" }}}
+  <!-- Custom Keycaps Alt
+<div class="bg-white flex">
+<div class="flex-50"><strong>CHECK THIS OUT!</strong>
+<h3>Custom Keyboard Keys</h3>
+<p>Let your keyboard become your canvas - make your own keycaps! Using our mold making and casting supplies, you can have your very own customized technical keyboard.</p>
+<p>Add your favorite dyes and powders for a creative, colorful look.</p>
+<a class="button bg-black" href="https://www.alumilite.com/custom-keycaps/">LEARN MORE</a></div>
+<div class="flex-50"><img title="Custom Keycaps by Alumilite" src="https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/custom-keycaps-hero.jpeg" alt="Custom Keycaps by Alumilite" /></div>
+</div>-->
+  <!--Amazing Line
+<div class="flex flex-reverse bg-grey">
+<div class="flex-50"><img title="Amazing Casting Product by Alumilite" src="https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/alumilite-amazing-line.jpeg" alt="Amazing Casting Product by Alumilite" /></div>
+<div class="flex-50"><strong>If you can imagine it, you can make it.</strong>
+<h3>Amazing Casting Products</h3>
+<p>Amazing Casting Products will help you turn a crafty idea into a finished product in no time. Use Amazing Mold Putty, Amazing Mold Rubber, or Amazing Remelt to make custom food-safe molds. Use Amazing Clear Cast, Amazing Clear Cast Plus, Amazing Deep Pour, Amazing Casting Resin to cast, coat, and create. Bring your ideas to life with Amazing Casting Products!</p>
+<a class="button" href="https://www.alumilite.com/amazing-casting-products">VIEW AMAZING LINE</a></div>
+</div>-->
+{{{ region name="panel 3" }}}
+  <!-- See Whats Possible -->
+  <div class="bg-white flex">
+    <div class="flex-50">
+      <div class="flex-video" data-embed-youtube="2-Oc3h1i1yM"></div>
+    </div>
+    <div class="flex-50">
+      <h2>See What's Possible</h2>
+      <p>
+        Our mission is to give you the tools you need to discover the unlimited possibilities that exist in the world of mold making and casting. With the highest quality products and service in the
+        industry, we are here to help.
+      </p>
+      <p><a class="button" href="https://www.youtube.com/user/AlumiliteCorporation">Watch Now </a></p>
+    </div>
+  </div>
+   <!--Keep Learning, Keep Making 
+  <div class="bg-grey flex-reverse flex">
+    <div class="flex-50">
+      <h2>Alumilite Academy</h2>
+      <p>
+        Whether you&rsquo;re looking to get started or take your projects to the next level, we&rsquo;ve got your back. Check out our Academy courses to get familiar with the basics, to level up your
+        skills, or to try something new.
+      </p>
+      <p><a class="button" href="https://www.alumilite.com/academy">Get Started</a></p>
+    </div>
+    <div class="flex-50">
+      <div class="flex-video" data-embed-youtube="C5fdr9aFmro"></div>
+    </div>
+  </div>-->
+  {{{ region name="panel 4" }}}
+
+<!--<div class="main full grid-bg">
+        <div class="container">
+
+            {{#if products.featured}}
+                {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+            {{/if}}
+            {{{region name="home_below_featured_products"}}}
+
+            {{#if products.top_sellers}}
+                {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
+            {{/if}}
+            {{{region name="home_below_top_products"}}}
+
+            {{#if products.new}}
+                {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
+            {{/if}}
+        </div>
+    </div>-->
+{{/partial}} {{#partial "hero-bottom"}} {{{region name="home_below_new_products"}}} {{/partial}} {{> layout/base}}
+<script async>
+  window.onload = setTimeout(function loadYouTubePlayers() {
+    var youtube = document.querySelectorAll(".flex-video");
+    for (var i = 0; i < youtube.length; i++) {
+      var tubeid = youtube[i].getAttribute("data-embed-youtube");
+      var tube = '<iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/' + tubeid + '?rel=0" width="560" height="315" frameborder="0" allowfullscreen=""></iframe>';
+      youtube[i].innerHTML += tube;
+    }
+  }, 1000);
+</script>
+
+<script>
+    const startDateShipping = new Date('April 2, 2023 09:00:00');
+    const endDateShipping = new Date('May 1, 2023 00:00:00');
+    const todayShipping = new Date();
+    if (todayShipping >= startDateShipping && todayShipping < endDateShipping) {
+            
+        if (window.screen.width <= 800) {
+        // home page mobile carousel
+        const carouselInner = document.getElementById("carousel-inner");
+        const a = document.createElement("a");
+        a.href="https://www.alumilite.com/products/";
+        a.innerHTML = '<img title="" src="https://cdn11.bigcommerce.com/s-2yiip5r05b/images/stencil/original/image-manager/text-announcementblog-placement-4-1-.png?t=1680290448" alt="" />';
+        carouselInner.prepend(a);
+        }
+    }
+</script>

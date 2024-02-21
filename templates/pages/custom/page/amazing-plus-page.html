@@ -1,0 +1,109 @@
+{{#partial "page"}} {{#if banners.top}}
+<div class="banners" data-banner-location="top">
+  {{#each (limit banners.top_metadata 1)}}
+  <div
+    class="banner"
+    data-event-type="promotion"
+    data-entity-id="{{this.id}}"
+    data-name="{{this.banner-name}}"
+    data-position="{{this.location}}"
+    data-banner-id="{{this.banner-name}}"
+  >
+    <div data-event-type="promotion-click">
+      {{{this.content}}}
+    </div>
+  </div>
+  {{/each}}
+</div>
+{{/if}}
+
+<script>
+  (function() {
+    var ta = document.createElement('script'); ta.type = 'text/javascript'; ta.async = true;
+    ta.src = 'https://analytics.tiktok.com/i18n/pixel/sdk.js?sdkid=BSTBCPHBAFSQRGNC694G';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ta, s);
+  })();
+</script>
+
+<div class="container-fluid">
+  <main class="page">
+    <div class="page-content">
+      {{#replace '%%Syndicate%%' page.content}} {{> components/page/rss_feed}}
+      {{else}} {{{page.content}}} {{/replace}}
+    </div>
+
+    {{#if page.feed}}
+    <ul>
+      {{#each page.feed}}
+      <li>
+        <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+        <p>{{content}}</p>
+      </li>
+      {{/each}}
+    </ul>
+    {{/if}}
+  </main>
+</div>
+
+{{/partial}} {{> layout/base}}
+
+
+<script type="text/javascript">
+function changeACCP16oz() {
+  document.getElementById("accp-price").innerHTML="$28.00";
+  document.getElementById("form-action-addToCart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10601&source=amazing_clear_cast_plus_page";
+}
+function changeACCP32oz() {
+  document.getElementById("accp-price").innerHTML="$44.80";
+  document.getElementById("form-action-addToCart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10602&source=amazing_clear_cast_plus_page";
+}
+function changeACCP1gal() {
+  document.getElementById("accp-price").innerHTML="$106.40";
+  document.getElementById("form-action-addToCart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10603&source=amazing_clear_cast_plus_page";
+}
+function changeACCP2gal() {
+  document.getElementById("accp-price").innerHTML="$178.00";
+  document.getElementById("form-action-addToCart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10604&source=amazing_clear_cast_plus_page";
+}
+ </script>
+
+<script type="text/javascript"> 
+  var _learnq = _learnq || []; 
+  
+   var item = {
+     Name: "Amazing Clear Cast Plus", 
+     ProductID: "316",
+     ImageURL: "https://cdn11.bigcommerce.com/s-2yiip5r05b/images/stencil/1280x1280/products/316/764/ACC_Square__50678.1594212155.jpg", 
+     URL: "https://www.alumilite.com/resins/amazing-clear-cast-plus/",
+     Brand: "Alumilite", 
+     Price: "28",
+     CompareAtPrice: "28"
+    };
+  
+  _learnq.push(['track', 'Viewed Product', item]); 
+  
+  _learnq.push(['trackViewedItem', {
+     Title: item.Name, 
+     ItemId: item.ProductID,
+     ImageUrl: item.ImageURL, 
+     Url: item.URL,
+  
+     Metadata: { 
+       Brand: item.Brand,
+       Price: item.Price, 
+       CompareAtPrice: item.CompareAtPrice
+   } 
+   }]);
+  </script>
+  <script text="text/javascript">
+    var _learnq = _learnq || [];
+    document.getElementById("form-action-addToCart").addEventListener('click',function (){
+       _learnq.push(['track', 'Added to Cart', item]);
+    });
+  </script>
+  
+  <script>
+    fbq('track', 'PageView',{eventID: 'AL_{{settings.client_ip_address}}'});
+  </script>
+  

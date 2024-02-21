@@ -1,0 +1,9 @@
+<a href="{{urls.home}}">
+    {{#if settings.store_logo.image}}
+        <div class="header-logo-image-container">
+            <img class="header-logo-image" src="{{cdn 'icons/alumilite-logo-dark-grey.svg'}}" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
+        </div>
+    {{else}}
+        <span class="header-logo-text">{{settings.store_logo.title}}</span>
+    {{/if}}
+</a>

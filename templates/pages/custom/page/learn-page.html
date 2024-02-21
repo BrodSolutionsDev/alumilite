@@ -1,0 +1,1443 @@
+{{#partial "page"}}
+<style>
+    li {
+        line-height: 1.5;
+
+    }
+
+    .learn-card {
+        width: 430px;
+        background-color: #fff;
+        -ms-flex-direction: column !important;
+        flex-direction: column!important;
+        padding: 0px !important;
+        transition: all 1s ease;
+        float: left;
+        box-shadow: 3px 3px 7px #AAA;
+        border: 1px solid darkgrey;
+    }
+
+    .red-shadow:hover {
+        box-shadow: 10px -10px 0 #f2f2f2, 10px -10px 0 #e6e6e6, 25px -25px 0 #d9d9d9;
+        transform: translate(15px, -15px)
+    }
+
+    .blue-shadow:hover {
+        box-shadow: 10px -10px 0 #f2f2f2, 10px -10px 0 #e6e6e6, 25px -25px 0 #d9d9d9;
+        transform: translate(15px, -15px)
+    }
+
+    .learn-card-body {
+        padding: 20px !important;
+    }
+
+    .learn-card-footer {
+        padding: 20px;
+        text-transform: uppercase;
+    }
+
+    .learn-card .learn-card-body {
+        padding: 0px !important;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 12px;
+    }
+
+    .learn-card .learn-card-body p {
+        padding: 20px !important;
+        font-size: 13px;
+        height: 100px;
+    }
+
+    .learn-card .learn-card-body ul {
+        height: 100px;
+        padding: 20px !important;
+        font-size: 11px;
+        padding-bottom: 0px;
+    }
+
+    .button {
+        border-width: 0;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        background-color: #f9423a;
+        border-color: #424242;
+        color: #fff;
+        outline: 0;
+        vertical-align: middle;
+        border-radius: 0px;
+        box-shadow: 3px 3px 7px #AAA;
+        width: 42%;
+        padding: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-family: Interstate;
+        margin: 10px;
+        font-size: 13px !important;
+    }
+
+    .course {
+        text-align: left;
+        box-shadow: 3px 3px 7px #a66;
+        width: 95%;
+        padding: 1%;
+        margin-top: 20px;
+        border: 1px solid #AAA;
+        background-color: #fff;
+        margin-bottom: 20px;
+        margin-right: 11%;
+        margin-left: 11%;
+    }
+
+
+    .course h3 {
+        box-shadow: 3px 3px 7px #a66;
+        text-transform: uppercase;
+        color: #eceff1;
+        background-color: #f9423a;
+        text-align: center;
+        margin: 0;
+        margin: 10px;
+        padding: 20px;
+        color: white;
+
+    }
+
+    .course .scourse {
+        transition: all 1s ease;
+        box-shadow: 1px 1px 7px #a66;
+        /* float: left; */
+        margin-right: 0px;
+        border: 1px solid #AAA;
+        width: 338px;
+        height: 372px;
+        background-color: #fff;
+        position: relative;
+        margin: 10px;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .course .scourse:hover {
+        box-shadow: 5px -5px 0 #f2f2f2, 5px -5px 0 #e6e6e6, 5px -5px 0 #d9d9d9;
+        transform: translate(5px, -5px)
+    }
+
+    .course .scourse strong {
+        text-transform: uppercase;
+        background-color: #f9423a;
+        position: absolute;
+        color: black;
+        text-align: center;
+        top: 218px;
+        color: white;
+        height: 25px;
+        left: 0px;
+        width: 100%;
+        font-size: 15px;
+        padding: 18px;
+        line-height: 0;
+        margin-top: 0px;
+    }
+
+    .course .scourse p {
+        font-size: 10px;
+        position: absolute;
+        top: 281px;
+        text-align: center;
+        width: 100%;
+        color: black;
+        line-height: 12px;
+
+    }
+
+    .course .scourse .yt-thumb {
+        left: 0px;
+        height: 218px;
+        width: 100%;
+        position: absolute;
+    }
+
+    .flex-top {
+        border-top: 2px solid darkgrey;
+
+        width: 100%;
+    }
+
+    .flex-33 {
+        padding: 20px;
+        flex-basis: 24.33%;
+
+    }
+
+
+
+
+
+
+
+
+    #cover {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: #000;
+        z-index: 9999;
+    }
+
+
+    .epoxy-calculator {
+        position: absolute;
+        max-width: 1440px;
+        top: 170px;
+        width: 620px;
+        margin: auto;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-box;
+        display: -webkit-flexbox;
+        display: -webkit-flex;
+        /* display: flex; */
+        justify-content: center;
+        flex-flow: column;
+    }
+
+    .epoxy-calculator .calculator-form {
+        width: 350px;
+
+    }
+
+
+
+    .epoxy-calculator .calculator-form .thickness {
+        position: relative
+    }
+
+    .epoxy-calculator .calculator-form .thickness:after {
+        position: absolute;
+        font-family: 'FontAwesome';
+        content: '\f078';
+        top: 55%;
+        right: 30px;
+        font-size: 18px
+    }
+
+
+
+    .epoxy-calculator .calculator-form .calculate-btn {
+        margin: 0px auto;
+        display: block
+    }
+
+    .Epoxy__calculator {
+        font-family: 'Poppins';
+        padding-top: 25px;
+        padding-bottom: 80px;
+        position: relative;
+        z-index: 1
+    }
+
+    @media (max-width: 600px) {
+        .Epoxy__calculator {
+            padding: 25px 4% 80px
+        }
+    }
+
+    .Epoxy__calculator:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: '';
+        background: rgba(255, 255, 255, 0.85);
+        z-index: -1
+    }
+
+    .epoxyCalculatorBtn {
+        margin: 10px 0
+    }
+
+    .epoxyCalculatorBtn a {
+        display: block;
+        width: 100%;
+        background-color: #5BACE4;
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        border-radius: 11px;
+        box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.25);
+        text-align: center;
+        padding: 10px;
+        text-decoration: none;
+        -webkit-transition: all 0.3s ease-out;
+        -moz-transition: all 0.3s ease-out;
+        -ms-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out
+    }
+
+    .epoxyCalculatorBtn a:hover {
+        color: #5bace4;
+        background: #fff;
+        -webkit-transition: all 0.3s ease-out;
+        -moz-transition: all 0.3s ease-out;
+        -ms-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out
+    }
+
+    .epoxy-calc-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        align-items: center;
+        justify-content: center;
+
+
+        -webkit-transition: all 0.3s ease-out;
+        -moz-transition: all 0.3s ease-out;
+        -ms-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out
+    }
+
+    .epoxy-calc-popup.popup-active {
+        visibility: visible;
+        opacity: 1;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-box;
+        display: -webkit-flexbox;
+        display: -webkit-flex;
+        display: flex
+    }
+
+    .epoxy-calc-popup .epoxy-calculator {
+        padding: 30px 25px;
+        background: #fff;
+        width: 625px;
+        position: relative
+    }
+
+    #player {
+        box-shadow: 3px 4px 6px #AAA;
+    }
+
+    .epoxy-calc-popup .close-btn {
+        background: #fff;
+        color: #000;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 10px;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-box;
+        display: -webkit-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+
+    a.btn.primary-btn:hover,
+    button.btn.primary-btn:hover {
+        background-color: #fff;
+        color: #253d83;
+        transition: 0.3s;
+    }
+
+    .epoxy-calculator .calculator-form .calculate-btn {
+        margin: 0px auto;
+        display: block;
+    }
+
+    .modalbtn {
+        display: inline-block;
+        opacity: 1 !important;
+    }
+
+    .disabled {
+        display: inline-block;
+        opacity: 0.2;
+        cursor: default;
+    }
+
+    .disabled .scourse {
+        cursor: default !important;
+        opacity: 1;
+    }
+
+    .modalBtn {
+        opacity: 1 !important;
+    }
+    
+    .courseProgress {
+        margin-top: 0px;
+        margin-bottom: 9px;
+        text-align: left;
+        width: 81%;
+        margin-left: 9.5%;
+    }
+
+    .courseProgress div {
+        margin: 0px;
+        background-color: red;
+        background-image: linear-gradient(to bottom, red, red);
+    }
+
+    .progBar {
+        margin-bottom: 5px;
+    }
+
+    .rateVideos {
+        margin-bottom: 0px;
+        text-align: center;
+        font-weight: 700;
+        font-size: 13px;
+    }
+
+    .ui-progressbar .ui-progressbar-value {
+        border-radius: 0px;
+        margin: 0px;
+        height: 100%;
+        -moz-border-radius: 0px;
+    }
+
+    .learn-card .learn-card-header h3 {
+
+        text-align: center;
+        margin-bottom: 1rem;
+        padding: 17px;
+        color: white;
+    }
+
+    .flex-video {
+        box-shadow: 3px 3px 7px #AAA;
+    }
+
+    .modalbtn .scourse:hover {
+        border: 1px solid yellow;
+    }
+
+    .fa-play:before {
+        content: "\f04b";
+        margin-right: 5px;
+    }
+
+    .fa-bars:before {
+        margin-right: 5px;
+    }
+</style>
+
+{{#if banners.top}}
+<div class="banners" data-banner-location="top">
+    {{#each (limit banners.top_metadata 1)}}
+    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}"
+        data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+        <div data-event-type="promotion-click">
+            {{{this.content}}}
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/if}}
+
+<div class="container-fluid">
+    <main class="page">
+        <div class="page-content">
+            {{{page.content}}}
+
+            <div id="white-section" style="padding-top: 0.25rem;">
+                <h1 class="text-center" style="line-height: 2;">Learn</h1>
+                <p class="text-center">Courses on Mold Making &amp; Casting Resins by Alumilite</p>
+                <div class="flex flex-tight">
+                    <div class="flex-50">
+                        <div class="flex-video"><iframe src="https://www.youtube.com/embed/06XdCq78Q3M" width="560"
+                                height="315" frameborder="0" allowfullscreen=""></iframe></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="container-fluid">
+
+                <div class="container-fluid">
+                    <div class="flex flex-top flex-start-right" id="courses">
+                        <div class="flex-33">
+                            <div class="learn-card red-shadow">
+                                <div class="learn-card-header bg-red">
+                                    <h3>Casting Resin 101</h3>
+                                </div>
+                                <div class="learn-card-body">
+                                    <ul>
+                                        <li>Mixing Resin Well</li>
+                                        <li>Minimizing Air Bubbles</li>
+                                        <li>Using Powders</li>
+                                        <li>Using Dyes</li>
+                                    </ul>
+                                </div>
+                                <div class="learn-card-footer"><a class="button show-course-1 showCourse" href="#"><i
+                                            class="fa fa-bars"></i>View Details</a><a
+                                        class=" button modalbtn overview  wgf1BFPIeN8" id="wgf1BFPIeN8"
+                                        href="https://www.alumilite.com/learn/?videoid=wgf1BFPIeN8"><i
+                                            class="fa fa-play"></i>Overview Video</a></div>
+                                <div class="courseProgress courseP1"></div>
+                                <p class="rateVideos rateVideos1">Out Of 4 Videos Completed!</p>
+                            </div>
+                        </div>
+                        <div class="flex-33">
+                            <div class="learn-card red-shadow">
+                                <div class="learn-card-header bg-red">
+                                    <h3>Resins Overview</h3>
+                                </div>
+                                <div class="learn-card-body">
+                                    <p>Our Resins Overview is a great place to learn about all of the resins we offer
+                                        and which resin is right for your project.</p>
+                                </div>
+                                <div class="learn-card-footer"><a class="button show-course-2 showCourse" href="#"><i
+                                            class="fa fa-bars"></i>View Details</a><a
+                                        class=" button modalbtn overview  5MGIsogRLmk" id="5MGIsogRLmk"
+                                        href="https://www.alumilite.com/learn/?videoid=5MGIsogRLmk"><i
+                                            class="fa fa-play"></i>Overview Video</a></div>
+                                <div class="courseProgress courseP2"></div>
+                                <p class="rateVideos rateVideos2">Out Of 18 Videos Completed!</p>
+                            </div>
+                        </div>
+                        <div class="flex-33">
+                            <div class="learn-card blue-shadow">
+                                <div class="learn-card-header bg-blue">
+                                    <h3>Mold Making 101</h3>
+                                </div>
+                                <div class="learn-card-body">
+                                    <ul>
+                                        <li>What to use as mold box</li>
+                                        <li>Mixing Silicone</li>
+                                        <li>Degassing Silicone</li>
+                                        <li>One Piece Mold</li>
+                                        <li>Two Piece Mold</li>
+                                    </ul>
+                                </div>
+                                <div class="learn-card-footer" style="padding-top:0px;"><a
+                                        class="  button show-course-3 showCourse" href="#"><i
+                                            class="fa fa-bars"></i>View Details</a><a
+                                        class=" button modalbtn overview  nNWzBHJe9YA" id="nNWzBHJe9YA"
+                                        href="https://www.alumilite.com/learn/?videoid=nNWzBHJe9YA"><i
+                                            class="fa fa-play"></i>Overview Video</a></div>
+                                <div class="courseProgress courseP3"></div>
+                                <p class="rateVideos rateVideos3">Out Of 5 Videos Completed!</p>
+                            </div>
+                        </div>
+                        <div class="flex-33">
+                            <div class="learn-card blue-shadow">
+                                <div class="learn-card-header bg-blue">
+                                    <h3>Learn Silicone</h3>
+                                </div>
+                                <div class="learn-card-body">
+                                    <p>Our Silicone Overview is a great place to learn about all of the different
+                                        Silicone types we offer and which Silicone is right for your project.</p>
+                                </div>
+                                <div class="learn-card-footer" style="padding-top:0px;"><a
+                                        class="  button show-course-4 showCourse" href="#"><i
+                                            class="fa fa-bars"></i>View Details</a><a
+                                        class=" button modalbtn overview  IiyUJAovBzA" id="IiyUJAovBzA"
+                                        href="https://www.alumilite.com/learn/?videoid=IiyUJAovBzA"><i
+                                            class="fa fa-play"></i>Overview Video</a></div>
+                                <div class="courseProgress courseP4"></div>
+                                <p class="rateVideos rateVideos4">Out Of 16 Videos Completed!</p>
+                            </div>
+                        </div>
+                        <div class="course course2" style="display:none;">
+                            <h3 class="slideToggle">Resins Overview<i class="fa fa-minus"
+                                    style="float: right;margin-top: 10px;"></i></h3>
+                            <a class="modalbtn" id="6nBW0zqyEk8"
+                                href="https://www.alumilite.com/learn/?videoid=6nBW0zqyEk8">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/6nBW0zqyEk8/maxresdefault.jpg"
+                                        class="yt-thumb">
+                                    <strong>ALUMILITE WHITE</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Alumilite White (also known and sold as Amazing Casting Resin) is an easy to use
+                                        white urethane resin.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="51AeFSX9CiI"
+                                href="https://www.alumilite.com/learn/?videoid=51AeFSX9CiI">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/51AeFSX9CiI/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>ALUMILITE CLEAR</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Alumilite Clear is a glossy, crystal clear resin that is convenient to use for a
+                                        wide range of casting and turning projects.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="HF84zEIzaSw"
+                                href="https://www.alumilite.com/learn/?videoid=HF84zEIzaSw">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/HF84zEIzaSw/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>ALUMILITE CLEAR SLOW</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Alumilite Clear Slow is a crystal-clear resin with a longer (twelve-minute) open
+                                        time, making it convenient to use for large casting and turning projects.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="-kmk2kq7AVU"
+                                href="https://www.alumilite.com/learn/?videoid=-kmk2kq7AVU">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/-kmk2kq7AVU/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>ALUMILITE WATER CLEAR</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Alumilite Clear is a glossy, crystal clear resin that is convenient to use for a
+                                        wide range of casting and turning projects.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="uAqxPN63HaA"
+                                href="https://www.alumilite.com/learn/?videoid=uAqxPN63HaA">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/uAqxPN63HaA/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>ALUMIRES (RC-3) BLACK</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Alumires (RC-3) Black is our original AlumiRes that has been pre-dyed black. It
+                                        is an easy to mix and pour resin that is great for casting large, durable
+                                        pieces.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="uAqxPN63HaA"
+                                href="https://www.alumilite.com/learn/?videoid=uAqxPN63HaA">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/uAqxPN63HaA/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>ALUMIRES (RC-3) TAN</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Alumires (RC-3) is an easy to mix and pour resin that is great for casting large,
+                                        durable pieces.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="2FXL_VG83QI"
+                                href="https://www.alumilite.com/learn/?videoid=2FXL_VG83QI">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/2FXL_VG83QI/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>PERFORMANCE 65D</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Alumilite Clear is a glossy, crystal clear resin that is convenient to use for a
+                                        wide range of casting and turning projects.Performance 65D is a rigid yet
+                                        flexible urethane elastomer </p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="2FXL_VG83QI"
+                                href="https://www.alumilite.com/learn/?videoid=2FXL_VG83QI">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/2FXL_VG83QI/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>PERFORMANCE 80D</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Performance 80D is a urethane elastomer that produces tough parts with ultra-high
+                                        tear and impact properties.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="PVUVk5B3i8U"
+                                href="https://www.alumilite.com/learn/?videoid=PVUVk5B3i8U">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/PVUVk5B3i8U/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>SLOW SET 7</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Slow Set 7 is a urethane casting resin with a long open time – it cures tan and
+                                        rigid, and is perfect for casting large, intricate pieces.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="g6kyPzeT_5Q"
+                                href="https://www.alumilite.com/learn/?videoid=g6kyPzeT_5Q">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/g6kyPzeT_5Q/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>FLEX 20</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Flex 20 is a soft, flexible yet durable urethane rubber. It’s easy to use,
+                                        accepts color, and allows for excellent detail and part reproduction.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="7ZDXLzrgt_E"
+                                href="https://www.alumilite.com/learn/?videoid=7ZDXLzrgt_E">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/7ZDXLzrgt_E/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>FLEX 50</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Flex 50 is a low-viscosity, tough, and flexible urethane rubber that allows for
+                                        great detail and part reproduction.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="zAkqklM1YU0"
+                                href="https://www.alumilite.com/learn/?videoid=zAkqklM1YU0">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/zAkqklM1YU0/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>FLEX 60</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Flex 60 is a tough urethane rubber with flexibility -- excellent for duplicating
+                                        rubber parts or for making rubber molds.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="4TvDK2hVy0o"
+                                href="https://www.alumilite.com/learn/?videoid=4TvDK2hVy0o">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/4TvDK2hVy0o/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>FLEX 70</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Flex 70 is flexible, tough urethane rubber that is excellent for duplicating
+                                        rubber parts or for making rubber molds.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="4TvDK2hVy0o"
+                                href="https://www.alumilite.com/learn/?videoid=4TvDK2hVy0o">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/ssjZrmSp9Ac/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>FLEX 80</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Flex 80 is an extremely tough yet still flexible urethane rubber that is a great
+                                        product for duplicating or casting hard rubber parts.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="TD3B0i9Q_mU"
+                                href="https://www.alumilite.com/learn/?videoid=TD3B0i9Q_mU">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/TD3B0i9Q_mU/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>610 FOAM</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>610 Foam is a 2-part foam that cures rigid and lightweight that expands up to ten
+                                        times its original volume.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="V12uobKhZbc"
+                                href="https://www.alumilite.com/learn/?videoid=V12uobKhZbc">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/V12uobKhZbc/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>ALUMIFOAM</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>AlumiFoam is a rigid 2-part foam that produces a hard, dense, and durably cast
+                                        piece.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="1_t4Pd-0pOw"
+                                href="https://www.alumilite.com/learn/?videoid=1_t4Pd-0pOw">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/1_t4Pd-0pOw/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>FLEXIBLE FOAM 5-8 DENSITY</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>This two-part foam is an expanding, flexible, and high tear strength product.
+                                        Flexible Foam expands to 3-5 times its original volume and remains soft.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="V12uobKhZbc"
+                                href="https://www.alumilite.com/learn/?videoid=V12uobKhZbc">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/V12uobKhZbc/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>SUPER FOAM 320</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Super Foam 320 is a user-friendly, 2-part expandable foam that expands up to 20
+                                        times its original liquid volume.</p>
+
+                                </div>
+                            </a>
+
+
+                        </div>
+                        <div id="course1" class="course course1" style="display:none;">
+                            <h3 class="slideToggle">Casting Resin 101<i class="fa fa-minus"
+                                    style="float: right;margin-top: 10px;"></i></h3>
+                            <a class="modalbtn" id="SuOzmEKIQIU"
+                                href="https://www.alumilite.com/learn/?videoid=SuOzmEKIQIU">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/SuOzmEKIQIU/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>Mixing Resin</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Learn how to properly combine our resins</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="jo0VpmU5CIc"
+                                href="https://www.alumilite.com/learn/?videoid=jo0VpmU5CIc">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/jo0VpmU5CIc/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>Minimizing Air Bubbles</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Learn how to minimize air bubbles in your resin</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="idNXTxpfVtA"
+                                href="https://www.alumilite.com/learn/?videoid=idNXTxpfVtA">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/idNXTxpfVtA/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>Using Powders</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Use powders to add color and depth to your pour</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="nngCva9nQuM"
+                                href="https://www.alumilite.com/learn/?videoid=nngCva9nQuM">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/nngCva9nQuM/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>Using Resin</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Using dyes to add a pop of color</p>
+
+                                </div>
+                            </a>
+                        </div>
+                        <div id="course2" class="course course3" style="display:none;">
+                            <h3 class="slideToggle">Mold Making 101<i class="fa fa-minus"
+                                    style="float: right;margin-top: 10px;"></i></h3>
+                            <a class="modalbtn" id="ZVlVeZLm1jM"
+                                href="https://www.alumilite.com/learn/?videoid=ZVlVeZLm1jM">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/ZVlVeZLm1jM/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>Material for Mold Box</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Learn how you can create a mold box</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="C5fdr9aFmro"
+                                href="https://www.alumilite.com/learn/?videoid=C5fdr9aFmro">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/C5fdr9aFmro/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>MIXING SILICONE</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Learn how to properly mix silicone</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="QnVYqH1LWng"
+                                href="https://www.alumilite.com/learn/?videoid=QnVYqH1LWng">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/QnVYqH1LWng/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>DEGAS SILICONE</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Learn how to properly degas silicone</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="kzOtuCTg-0c"
+                                href="https://www.alumilite.com/learn/?videoid=kzOtuCTg-0c">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/kzOtuCTg-0c/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>ONE PIECE MOLD</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Learn how to properly create one piece molds</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="da_OSlxT0TY"
+                                href="https://www.alumilite.com/learn/?videoid=da_OSlxT0TY">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/da_OSlxT0TY/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>TWO PIECE MOLD</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Learn how to properly create two piece molds</p>
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="course course4" style="display:none;">
+                            <h3 class="slideToggle">Learning Silicone</h3>
+                            <a class="modalbtn" id="_kFkLI_O8HI"
+                                href="https://www.alumilite.com/learn/?videoid=_kFkLI_O8HI">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/_kFkLI_O8HI/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>AMAZING CASTING PRODUCTS</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>The complete line of Amazing Mold Making products.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="qiIP4QYNKng"
+                                href="https://www.alumilite.com/learn/?videoid=qiIP4QYNKng">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/qiIP4QYNKng/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>AMAZING MOLD PUTTY</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Amazing Mold Putty is an extremely easy to use 2-part silicone mold making putty.
+                                    </p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="b_uFzMnhtPg"
+                                href="https://www.alumilite.com/learn/?videoid=b_uFzMnhtPg">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/b_uFzMnhtPg/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>AMAZING MOLD RUBBER</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Amazing Mold Rubber is an easy to use tin-based silicone mold-making material.
+                                    </p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="qmvb0c43cc0"
+                                href="https://www.alumilite.com/learn/?videoid=qmvb0c43cc0">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/qmvb0c43cc0/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>AMAZING REMELT</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Amazing Remelt is a mold making material that is reusable and non-toxic. </p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="nJ4aOAmt200"
+                                href="https://www.alumilite.com/learn/?videoid=nJ4aOAmt200">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/nJ4aOAmt200/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>HIGH STRENGTH 1</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>A tin-based silicone mold making rubber, when your mold requires a little more
+                                        stiffness but still need exceptional tear strength.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="Vgo0TloNdr0"
+                                href="https://www.alumilite.com/learn/?videoid=Vgo0TloNdr0">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/Vgo0TloNdr0/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>HIGH STRENGTH 2</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>High Strength 2 is a tin-based silicone mold making rubber with high tear
+                                        strength and is great for making all types of molds.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="pJWqdT-keas"
+                                href="https://www.alumilite.com/learn/?videoid=pJWqdT-keas">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/pJWqdT-keas/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>HIGH STRENGTH 3</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>High Strength 3 is our most flexible tin-based silicone mold making rubber.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="hTczYS5IXcU"
+                                href="https://www.alumilite.com/learn/?videoid=hTczYS5IXcU">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/hTczYS5IXcU/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>WHAT PLAT TO USE ?</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Learn what Plat silicone rubber is right for your project.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="sClNxm_92ok"
+                                href="https://www.alumilite.com/learn/?videoid=sClNxm_92ok">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/sClNxm_92ok/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>PLAT 10</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Plat 10 is a platinum-based silicone mold making rubber that cures extremely soft
+                                        and pliable.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="7ZDXLzrgt_E"
+                                href="https://www.alumilite.com/learn/?videoid=7ZDXLzrgt_E">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/7ZDXLzrgt_E/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>PLAT 25</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Plat 25 is a platinum-based silicone mold making rubber than when cured yields a
+                                        soft and pliable rubber while maintaining the mold’s structural properties.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="tEWC8ThLygI"
+                                href="https://www.alumilite.com/learn/?videoid=tEWC8ThLygI">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/tEWC8ThLygI/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>PLAT 40</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Plat 40 is a platinum-based silicone mold making rubber that cures flexible and
+                                        with medium hardness.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="DdkYfNUw4QA"
+                                href="https://www.alumilite.com/learn/?videoid=DdkYfNUw4QA">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/DdkYfNUw4QA/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>PLAT 55</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Plat 55 is a platinum-based silicone mold making rubber that is perfect for
+                                        making stiff, stable molds.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="BG7oLIFB9A0?"
+                                href="https://www.alumilite.com/learn/?videoid=BG7oLIFB9A0?">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/BG7oLIFB9A0?/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>MOLD PUTTY</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Mold Putty is a food-safe, easy to use, two-part silicone putty that allows you
+                                        to make a flexible rubber mold in just ten minutes.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="or2q3QQuKoI"
+                                href="https://www.alumilite.com/learn/?videoid=or2q3QQuKoI">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/or2q3QQuKoI/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>MOLD PUTTY-15</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Mold Putty 15 is a two-part silicone mold making putty with a long open time that
+                                        allows you to create larger-scaled projects.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="SwNSZY9rTbo"
+                                href="https://www.alumilite.com/learn/?videoid=SwNSZY9rTbo">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/SwNSZY9rTbo/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>QUICKSETMOLD PUTTY</strong><strong class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Quickset is a tin-based mold making silicone that is ideal for one- or two-piece
+                                        molds that don’t require a lot of stress or flexibility.</p>
+
+                                </div>
+                            </a>
+                            <a class="modalbtn" id="hq0A7-EVxSY"
+                                href="https://www.alumilite.com/learn/?videoid=hq0A7-EVxSY">
+                                <div class="scourse">
+                                    <img src="https://img.youtube.com/vi/hq0A7-EVxSY/maxresdefault.jpg"
+                                        class="yt-thumb">
+
+                                    <strong>TRANS 40 TRANSLUCENT SILICONE RUBBER</strong><strong
+                                        class="fa fa-star completed"
+                                        style="top: 90px;color: yellow;font-size: 105px;background-color: transparent;display:none;"></strong>
+                                    <p>Trans 40 is a translucent, platinum-based silicone rubber that is ideal for molds
+                                        that require visual inspection or for creating prototype designs.</p>
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="cover"></div>
+                    <div class="epoxy-calc-popup" id="video" style="display:none;">
+                        <div class="epoxy-calculator">
+                            <a class="close-btn">&#10005;</a>
+                            <div class="calculator-form">
+                                <div id="player" style="width:560px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+    </main>
+</div>
+</div>
+</main>
+</div>
+
+{{/partial}}
+
+{{> layout/base}}
+<script>
+    fbq('track', 'PageView');
+</script>
+<script>
+
+    $(window).on('load', function () {
+        $("#cover").hide();
+    });
+</script>
+
+<script>
+    $.extend({
+        getUrlVars: function () {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        },
+        getUrlVar: function (name) {
+            return $.getUrlVars()[name];
+        }
+    });
+
+    var byName = $.getUrlVar('videoid');
+    $(function () {
+        $('.show-course-1').on('click', function () {
+            if (!$(this).hasClass("disabled")) {
+                $('.course1').slideToggle('fast');
+                $('.course2').hide();
+                $('.course3').hide();
+                $('.course4').hide();
+                $('html,body').animate({ scrollTop: $('.course1').offset().top }, 'slow');
+            }
+        });
+        $('.show-course-2').on('click', function () {
+            if (!$(this).hasClass("disabled")) {
+                $('.course2').slideToggle('fast');
+                $('.course1').hide();
+                $('.course3').hide();
+                $('.course4').hide();
+                $('html,body').animate({ scrollTop: $('.course2').offset().top }, 'slow');
+            }
+        });
+        $('.show-course-3').on('click', function () {
+            if (!$(this).hasClass("disabled")) {
+                $('.course3').slideToggle('fast');
+                $('.course1').hide();
+                $('.course2').hide();
+                $('.course4').hide();
+                $('html,body').animate({ scrollTop: $('.course3').offset().top }, 'slow');
+            }
+        });
+        $('.show-course-4').on('click', function () {
+            if (!$(this).hasClass("disabled")) {
+                $('.course4').slideToggle('fast');
+                $('.course1').hide();
+                $('.course2').hide();
+                $('.course3').hide();
+                $('html,body').animate({ scrollTop: $('.course4').offset().top }, 'slow');
+            }
+        });
+        // $(".slideToggle").each(function () {
+        //     $(this).on('click', function () {
+        //         if ($(this).children().hasClass("fa-minus")) {
+        //             $(this).children().removeClass("fa-minus");
+        //             $(this).children().addClass("fa-plus");
+        //             $(this).siblings().hide();
+        //         }
+        //         else if ($(this).children().hasClass("fa-plus")) {
+        //             $(this).children().removeClass("fa-plus");
+        //             $(this).children().addClass("fa-minus");
+        //             $(this).siblings().show();
+        //         }
+        //     });
+        // });
+        if (byName != null) {
+            $('.epoxy-calc-popup').slideToggle('fast');
+        }
+        $(".modalbtn").each(function () {
+            $(this).addClass($(this).attr('id'));
+        });
+
+
+
+
+        $('.close-btn').on('click', function () {
+            $('.epoxy-calc-popup').hide();
+            $("#player").remove();
+        });
+
+        var videoArray = $.session.get("videoid");
+        if (videoArray != null) {
+            var videoRep = videoArray.replace(/\./g, ",");
+            var videoID = videoRep.split(",");
+            for (i = 1; i < videoID.length; i++) {
+                $("." + videoID[i]).addClass("disabled");
+                $("." + videoID[i] + " .completed").show();
+            }
+        }
+
+        $(".disabled").on("click", function (e) {
+            // e.preventDefault();
+        });
+
+        $(".disabled").each(function () {
+            // $(this).removeClass("modalbtn");
+            // $(this).removeAttr('href');
+            // $(this).off('click');
+            // $(this).onclick = undefined;
+        });
+
+        $(".learn-card-footer .overview").each(function () {
+            if (!$(this).hasClass("disabled")) {
+                $(this).siblings().addClass("disabled");
+                $(this).siblings().on("click", function (e) {
+                    $(this).removeAttr('href');
+                    alert("Please Watch Overview Video First!");
+                });
+            } else {
+
+                // $(this).removeClass("modalbtn");
+                // $(this).removeAttr('href');
+                // $(this).off('click');
+                // $(this).onclick = undefined;
+            }
+        });
+
+        var c1Prog = (parseFloat(parseInt($(".course1 .disabled").length, 10) * 100) / 4);
+        var c2Prog = (parseFloat(parseInt($(".course2 .disabled").length, 10) * 100) / 18);
+        var c3Prog = (parseFloat(parseInt($(".course3 .disabled").length, 10) * 100) / 5);
+        var c4Prog = (parseFloat(parseInt($(".course4 .disabled").length, 10) * 100) / 16);
+
+        $(".rateVideos1").text($(".course1 .disabled").length + " Out Of 4 Videos Completed!");
+        $(".rateVideos2").text($(".course2 .disabled").length + " Out Of 18 Videos Completed!");
+        $(".rateVideos3").text($(".course3 .disabled").length + " Out Of 5 Videos Completed!");
+        $(".rateVideos4").text($(".course4 .disabled").length + " Out Of 16 Videos Completed!");
+        $(".courseP1").progressbar({ value: c1Prog });
+        $(".courseP2").progressbar({ value: c2Prog });
+        $(".courseP3").progressbar({ value: c3Prog });
+        $(".courseP4").progressbar({ value: c4Prog });
+
+
+    });
+</script>
+
+<!-- JQUERY SESSION -->
+<script>
+    (function ($) {
+
+        $.session = {
+
+            _id: null,
+
+            _cookieCache: undefined,
+
+            _init: function () {
+                if (!window.name) {
+                    window.name = Math.random();
+                }
+                this._id = window.name;
+                this._initCache();
+
+                // See if we've changed protcols
+
+                var matches = (new RegExp(this._generatePrefix() + "=([^;]+);")).exec(document.cookie);
+                if (matches && document.location.protocol !== matches[1]) {
+                    this._clearSession();
+                    for (var key in this._cookieCache) {
+                        try {
+                            window.sessionStorage.setItem(key, this._cookieCache[key]);
+                        } catch (e) { };
+                    }
+                }
+
+                document.cookie = this._generatePrefix() + "=" + document.location.protocol + ';path=/;expires=' + (new Date((new Date).getTime() + 120000)).toUTCString();
+
+            },
+
+            _generatePrefix: function () {
+                return '__session:' + this._id + ':';
+            },
+
+            _initCache: function () {
+                var cookies = document.cookie.split(';');
+                this._cookieCache = {};
+                for (var i in cookies) {
+                    var kv = cookies[i].split('=');
+                    if ((new RegExp(this._generatePrefix() + '.+')).test(kv[0]) && kv[1]) {
+                        this._cookieCache[kv[0].split(':', 3)[2]] = kv[1];
+                    }
+                }
+            },
+
+            _setFallback: function (key, value, onceOnly) {
+                var cookie = this._generatePrefix() + key + "=" + value + "; path=/";
+                if (onceOnly) {
+                    cookie += "; expires=" + (new Date(Date.now() + 120000)).toUTCString();
+                }
+                document.cookie = cookie;
+                this._cookieCache[key] = value;
+                return this;
+            },
+
+            _getFallback: function (key) {
+                if (!this._cookieCache) {
+                    this._initCache();
+                }
+                return this._cookieCache[key];
+            },
+
+            _clearFallback: function () {
+                for (var i in this._cookieCache) {
+                    document.cookie = this._generatePrefix() + i + '=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                }
+                this._cookieCache = {};
+            },
+
+            _deleteFallback: function (key) {
+                document.cookie = this._generatePrefix() + key + '=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                delete this._cookieCache[key];
+            },
+
+            get: function (key) {
+                return window.sessionStorage.getItem(key) || this._getFallback(key);
+            },
+
+            set: function (key, value, onceOnly) {
+                try {
+                    window.sessionStorage.setItem(key, value);
+                } catch (e) { }
+                this._setFallback(key, value, onceOnly || false);
+                return this;
+            },
+
+            'delete': function (key) {
+                return this.remove(key);
+            },
+
+            remove: function (key) {
+                try {
+                    window.sessionStorage.removeItem(key);
+                } catch (e) { };
+                this._deleteFallback(key);
+                return this;
+            },
+
+            _clearSession: function () {
+                try {
+                    window.sessionStorage.clear();
+                } catch (e) {
+                    for (var i in window.sessionStorage) {
+                        window.sessionStorage.removeItem(i);
+                    }
+                }
+            },
+
+            clear: function () {
+                this._clearSession();
+                this._clearFallback();
+                return this;
+            }
+
+        };
+
+        $.session._init();
+
+    })(jQuery);
+</script>
+<script>
+    var player = document.getElementById('player');
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScript = document.getElementsByTagName('script')[0];
+    firstScript.parentNode.insertBefore(tag, firstScript);
+    function onYouTubeIframeAPIReady() {
+        new YT.Player('player', {
+            playerVars: { 'rel': 0, 'fs': 0, 'autoplay': 1, 'controls': 1 },
+            videoId: byName,
+            events: {
+                'onStateChange': function (evt) {
+                    if (evt.data === YT.PlayerState.ENDED) {
+                        $('#video').hide();
+                        $.session.set("videoid", $.session.get("videoid") + "," + byName + "");
+                        window.location.replace("https://www.alumilite.com/learn#courses");
+                    }
+                }
+            }
+        });
+    }
+
+
+</script>

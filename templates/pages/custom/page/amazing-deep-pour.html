@@ -1,0 +1,115 @@
+{{#partial "page"}} {{#if banners.top}}
+<div class="banners" data-banner-location="top">
+  {{#each (limit banners.top_metadata 1)}}
+  <div
+    class="banner"
+    data-event-type="promotion"
+    data-entity-id="{{this.id}}"
+    data-name="{{this.banner-name}}"
+    data-position="{{this.location}}"
+    data-banner-id="{{this.banner-name}}"
+  >
+    <div data-event-type="promotion-click">
+      {{{this.content}}}
+    </div>
+  </div>
+  {{/each}}
+</div>
+{{/if}}
+
+<script>
+  (function() {
+    var ta = document.createElement('script'); ta.type = 'text/javascript'; ta.async = true;
+    ta.src = 'https://analytics.tiktok.com/i18n/pixel/sdk.js?sdkid=BSTBCPHBAFSQRGNC694G';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ta, s);
+  })();
+</script>
+
+<div class="container-fluid">
+  <main class="page">
+    <div class="page-content">
+      {{{page.content}}}
+    </div>
+
+  </main>
+</div>
+
+{{/partial}} {{> layout/base}}
+
+
+<script type="text/javascript">
+var landingPageVariables = [40.00,"24 fl. oz."];
+  function changeADP24oz() {
+    document.getElementById("adp-image").src="https://cdn11.bigcommerce.com/s-2yiip5r05b/images/stencil/1280x1280/attribute_rule_images/637_source_1599657259.jpg";
+    document.getElementById("adp-price").innerHTML="40.00";
+    document.getElementById("form-action-addToCart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10610&source=amazing_deep_pour_page";
+    return landingPageVariables = [40.00,"24 fl. oz."];
+  }
+  function changeADP15gal() {
+    document.getElementById("adp-image").src="https://cdn11.bigcommerce.com/s-2yiip5r05b/images/stencil/1280x1280/attribute_rule_images/638_source_1599657814.jpg";
+    document.getElementById("adp-price").innerHTML="150.00";
+    document.getElementById("form-action-addToCart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10612&source=amazing_deep_pour_page";
+    return landingPageVariables = [150.00,"1.5 gal."];
+  }
+  function changeADP3gal() {
+    document.getElementById("adp-image").src="https://cdn11.bigcommerce.com/s-2yiip5r05b/images/stencil/960w/attribute_rule_images/639_source_1599659047.jpg";
+    document.getElementById("adp-price").innerHTML="300.00";
+    document.getElementById("form-action-addToCart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10613&source=amazing_deep_pour_page";
+    return landingPageVariables = [300.00,"3 gal."];
+  }
+  function changeADP6gal() {
+    document.getElementById("adp-image").src="https://cdn11.bigcommerce.com/s-2yiip5r05b/images/stencil/960w/attribute_rule_images/640_source_1599657259.jpg";
+    document.getElementById("adp-price").innerHTML="600.00";
+    document.getElementById("form-action-addToCart").href="https://www.alumilite.com/cart.php?action=add&sku=AL10614&source=amazing_deep_pour_page";
+    return landingPageVariables = [600.00,"6 gal."];
+  }
+   </script>
+  
+  <script type="text/javascript"> 
+    var _learnq = _learnq || []; 
+    
+     var item = {
+       Name: "Amazing Deep Pour", 
+       ProductID: "317",
+       ImageURL: "https://cdn11.bigcommerce.com/s-2yiip5r05b/images/stencil/1280x1280/attribute_rule_images/638_source_1599657814.jpg", 
+       URL: "https://www.alumilite.com/resins/amazing-deep-pour/",
+       Brand: "Alumilite", 
+       Price: "40",
+       CompareAtPrice: "40"
+      };
+    
+    _learnq.push(['track', 'Viewed Product', item]); 
+    
+    _learnq.push(['trackViewedItem', {
+       Title: item.Name, 
+       ItemId: item.ProductID,
+       ImageUrl: item.ImageURL, 
+       Url: item.URL,
+    
+       Metadata: { 
+         Brand: item.Brand,
+         Price: item.Price, 
+         CompareAtPrice: item.CompareAtPrice
+     } 
+     }]);
+    </script>
+    <script text="text/javascript">
+      var _learnq = _learnq || [];
+      document.getElementById("form-action-addToCart").addEventListener('click',function (){
+         _learnq.push(['track', 'Added to Cart', item]);
+      });
+    </script>
+  </script>
+  <script>
+    fbq('track', 'PageView');
+  var buttonADP = document.getElementById('form-action-addToCart');
+  buttonADP.addEventListener(
+    'click', 
+    function() { 
+      fbq('trackCustom', 'LandingPage', {page: 'Amazing Deep Pour', action:'Add to Cart', content_ids: ["317"], size: landingPageVariables[1], value:landingPageVariables[0], currency: 'USD'},{eventID: 'AL_{{settings.client_ip_address}}'});       
+    },
+    false
+  );
+  </script>
+  

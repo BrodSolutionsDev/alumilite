@@ -1,0 +1,180 @@
+@import "variables";
+.application {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: space-evenly;
+  padding: 50px 0;
+  text-align: center;
+
+  h2 {
+    font-family: $interstateUltra;
+    font-size: 5vmax;
+    line-height: 6.5rem;
+    color: #fff;
+    text-shadow: $text-shadow;
+    .flood {
+      font-size: 3vmax;
+      border-bottom: 10px solid;
+      display: inline-block;
+      line-height: 24px;
+    }
+  }
+}
+#intro {
+  padding: 2rem 0;
+  background-color: #fff;
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    text-align: left;
+    margin-top: 0;
+  }
+  .button {
+    margin-top: 1.5rem;
+  }
+}
+#product-section {
+  padding: 2rem 0;
+  background-color: $blue;
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    text-align: center;
+    margin-top: 0;
+    color:$white;
+  }
+  .button {
+    margin-top: 1.5rem;
+  }
+  img {
+    display: flex;
+    margin: auto;
+    border-radius: 50%;
+  }
+}
+#grey-section {
+  padding: 2rem 0;
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    text-align: left;
+    margin-top: 0;
+  }
+  .button {margin-top: 1rem;}
+  img {
+    display: flex;
+    margin: auto;
+  }
+}
+#white-section {
+  padding: 2rem 0;
+  background-color: #fff;
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    text-align: center;
+    margin-top: 0;
+  }
+  .button {margin-top: 1rem;}
+  img {
+    display: flex;
+    margin: auto;
+  }
+}
+#image-section,
+#video-section,
+#instructions {
+  padding: 2rem 0;
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    text-align: center;
+    margin-top: 0;
+  }
+  .button {margin-top: 1rem;}
+}
+
+@media only screen and (min-width: 1400px) {
+  #intro,
+  #product-section,
+  #image-section,
+  #video-section,
+  #grey-section,
+  #instructions {
+    padding: 2rem 5rem;
+  }
+}
+#amazing {
+  background: url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/amazing-hero.jpeg")
+    no-repeat center/cover;
+}
+#architectural-home {
+  background: $dark-overlay, url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/home-decor-finished-alumilite-home-improvement-architectural-materials-decor-1.jpg")
+    no-repeat center/cover;
+}
+#automotive {
+  background: $dark-overlay, url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/automotive-hero.jpeg")
+    no-repeat center/cover;
+}
+#crafting {
+  background: $dark-overlay, url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/crafting-hero.jpeg")
+    no-repeat center/cover;
+}
+#fishing {
+  background: $dark-overlay, url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/alumilite-makelure.jpeg")
+    no-repeat center/cover;
+}
+#food {
+  background: $dark-overlay, url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/culinary-hero.jpg")
+    no-repeat center/cover;
+}
+#hobbies {
+  background: $dark-overlay, url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/terrys-caboose-created-using-alumilite.jpg")
+    no-repeat center/cover;
+}
+#industrial {
+  background: $dark-overlay, url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/alumilite-tooling-products-supplier-1.jpg")
+    no-repeat center/cover;
+}
+#keycaps {
+    background: $dark-overlay, url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/custom-keycaps-hero-application3.jpeg")
+    no-repeat center/cover;
+}
+#medical {
+  background: $dark-overlay, url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/alumilite-medical-device-prototyping-manufacturing-materials-plastic-body-joint-model.jpg")
+    no-repeat center/cover;
+}
+#props-special-fx {
+  background: $dark-overlay, url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/alumilite-prop-building-supplies-brick-prop.jpg")
+    no-repeat center/cover;
+}
+#rock-climbing-holds {
+  background: $dark-overlay, url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/alumilite-climbing-holds-supplies-assorted-climbing-holds-1.jpg")
+    no-repeat center/cover;
+}
+#surface-coating {
+  background: $dark-overlay, url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/bar-coating-boatyard.jpg")
+    no-repeat center/cover;
+}
+#wood-turning {
+  background: $dark-overlay, url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/group2.jpg")
+    no-repeat center/cover;
+}

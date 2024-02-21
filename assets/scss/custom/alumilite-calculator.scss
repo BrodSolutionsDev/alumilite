@@ -1,0 +1,856 @@
+
+
+.instructions-icon {
+  height: 70px;
+
+  @media only screen and (max-width: 800px) {
+    height: 40px;
+  }
+}
+
+.instructions-card {
+  text-align: center;
+}
+
+.directions-card {
+  width: 100% !important; 
+}
+
+#start-over {
+  background: $black;
+  padding: 12px 25px;
+  border-radius: 4px;
+  color: $white;
+  text-decoration: none;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.35);
+  transition: all 0.2s;
+
+  &:hover {
+    background: #333;
+  }
+}
+#regForm {
+  background-color: #ffffff;
+  margin: 30px auto;
+  border-radius: 14px;
+  padding: 40px;
+  width: 1000px;
+  
+
+  @media only screen and (max-width: 1000px) {
+    width: unset;
+    max-width: 1000px;
+  }
+
+  h1 {
+    text-align: center;
+    margin: 0;
+    line-height: 1;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 35px;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 600px) {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+  h3 {
+    font-size: 18px;
+    text-align: center;
+  }
+  .tab {
+    display: none;
+    // margin-top: 25px;
+    width: 100%;
+  }
+  .step {
+    height: 25px;
+    width: 25px;
+    margin: 0 2px;
+    background-color: #d3d3d3;
+    color: $black;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    transition: all 0.2s;
+
+    @media only screen and (max-width: 600px) {
+      width: 15px;
+      height: 15px;
+    }
+  }
+  .step.active {
+    opacity: 1;
+    background-color: $green;
+    color: $white;
+  }
+  .step.finish {
+    background-color: $green;
+  }
+}
+
+#previous {
+  position: relative;
+  top: -83px;
+  background: $black;
+  color: $white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: all 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  @media only screen and (max-width: 800px) {
+    top: -130px;
+    font-size: 14px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    font-size: 12px;
+    top: -130px;
+    padding: 8px 12px;
+  }
+}
+
+/* step form */
+.calc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a.calc-card {
+  text-decoration: none;
+  color: $black;
+  transition: all 0.1s ease-out;
+
+  &:hover {
+    outline: 3px solid $blue;
+  }
+}
+
+.calc-card {
+  display: flex;
+  padding: 10px;
+  background: #eee;
+  border-radius: 5px;
+  margin: 10px;
+  text-decoration: none;
+  flex-direction: column;
+
+  &-img {
+    width: 100%;
+    height: 200px;
+    background: $black;
+    object-fit: cover;
+
+    &[alt] {
+      color: #fff;
+    }
+  }
+
+  .shape-select {
+    color: $black;
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 0;
+  }
+
+  @media only screen and (max-width: 800px) {
+    width: 45%;
+
+    &-img {
+      height: 35%;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    height: fit-content;
+
+    &-img {
+      height: 300px;
+    }
+  }
+}
+
+.selectedProduct,
+.selectedProject,
+.selectedShape {
+  outline: 3px solid $blue;
+}
+
+.active-button {
+  color: #fff;
+  background: $blue;
+}
+
+.calc-directions,
+.calc-project,
+.calc-products {
+  scroll-margin-top: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // margin: 30px auto;
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    .calc-card {
+      width: 30%;
+    }
+
+    @media only screen and (max-width: 800px) {
+      .calc-card {
+        width: 45%;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      .calc-card {
+        width: 90%;
+      }
+    }
+  }
+}
+
+.calc-directions {
+  margin-top: 0;
+  position: relative;
+  width: 100%;
+  left: 0;
+  background: $black;
+  display: flex;
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+
+    @media only screen and (max-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  h2 {
+    color: $white;
+  }
+
+  h3 {
+    font-size: 18px;
+    color: $white;
+  }
+  h5 {
+    color: $white;
+    font-size: 14px;
+  }
+  .calc-card {
+    background-color: unset;
+    flex-basis: 20%;
+
+    @media only screen and (max-width: 600px) {
+      flex-basis: 40%;
+    }
+  }
+}
+.calc-calculator {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  //width: 60%;
+
+  .calc-card {
+    &:hover {
+      outline: 3px solid $blue;
+      cursor: pointer;
+    }
+
+    &-img {
+      background: transparent;
+      height: 63px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+
+    @media only screen and (max-width: 800px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .input-values {
+    margin-right: 30px;
+    // width: 50%;
+    overflow: hidden;
+
+    @media only screen and (max-width: 800px) {
+      margin: 0 auto;
+    }
+
+    &__shapes {
+      display: flex;
+      margin-bottom: 20px;
+
+      .calc-card {
+        width: 150px;
+
+        h3 {
+          font-size: 16px;
+        }
+      }
+    }
+
+    .input-values__inputs {
+      // text-align: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      max-width: 366px;
+
+      .inputs-container {
+        display: flex;
+        flex-direction: row;
+        // align-tracks: left;
+        // width: 100px;
+        align-items: center;
+        justify-content: left;
+
+        .input-wrapper {
+          width: 25%;
+
+          label {
+            text-align: left;
+          }
+
+          input {
+            border: none;
+            border-bottom: 1px solid $black;
+            background: transparent;
+            text-align: center;
+            width: 100%;
+
+            &::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+
+            &[type='number'] {
+              -moz-appearance: textfield;
+            }
+          }
+        }
+
+        span {
+          margin: 0 10px;
+          font-weight: bolder;
+        }
+      }
+
+      p {
+        margin-top: 10px;
+      }
+    }
+
+    #calculate {
+      padding: 10px 25px;
+      background: $red;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+  }
+
+  #visual {
+    display: flex;
+    visibility: hidden;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+
+    @media only screen and (max-width: 800px) {
+      width: 75%;
+    }
+  }
+}
+
+#visual-rectangle,
+#visual-circle {
+  display: none;
+  margin-top: 50px;
+}
+
+#calc-products {
+  &-surface,
+  &-flood,
+  &-tumbler,
+  &-mold {
+    display: none;
+  }
+}
+
+.calc-quickView {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+
+  #results-title {
+    margin-top: 0;
+  }
+
+  &__inner {
+    display: flex;
+
+    @media only screen and (max-width: 600px) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    img {
+      width: 300px;
+      height: 300px;
+
+      margin-right: 20px;
+
+      @media only screen and (max-width: 800px) {
+        width: 200px;
+        height: 200px;
+      }
+    }
+
+    &-bio {
+      .add-to-cart {
+        padding: 10px 25px;
+        background: $red;
+        color: #fff;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.hide-section {
+  display: none !important;
+}
+.show-section {
+  display: flex !important;
+}
+#calc-quickView {
+  display: none;
+}
+
+.calc-results {
+  display: none;
+  padding: 20px;
+  margin-top: 20px;
+  //width: 60%;
+  justify-content: center;
+
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .total {
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+      margin-top: 0;
+    }
+
+    span {
+      font-size: 20px;
+    }
+
+    @media only screen and (max-width: 800px) {
+      flex-direction: row;
+
+      span {
+        padding-left: 10px;
+      }
+    }
+  }
+}
+
+#products,
+#calculator {
+  display: none;
+}
+
+// @media only screen and (max-width: 800px) {
+//   .calc-directions__cards .calc-card, .calc-project__cards .calc-card, .calc-products__cards .calc-card {
+//     flex-basis: 100%;
+//   }
+// }
+
+#loader-wrapper {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.9);
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+}
+
+#lds-dual-ring {
+  display: block;
+  width: 80px;
+  height: 80px;
+}
+#lds-dual-ring:after {
+  content: ' ';
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 10px solid #fff;
+  border-color: $blue transparent $blue transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.selections {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  // margin: 0 20px 15px 20px;
+  margin-bottom: 15px;
+}
+
+.selection {
+  text-align: center;
+  
+
+  &-title {
+    margin-bottom: 0;
+    text-decoration: underline;
+    color: #d3d3d3;
+  }
+}
+
+#total-label {
+  width: 150px;
+  display: inline-block;
+}
+
+.calc-calculation {
+  flex-direction: column;
+}
+
+.productView--quickView {
+  .productView-product {
+    .productUPC,
+    .productSKU,
+    span:first-of-type {
+      display: none;
+    }
+  }
+
+  .productView-options {
+    .form-action {
+      .button {
+        width: unset;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+      .productView-images {
+        max-width: 40%;
+      }
+  
+      .productView-details {
+        max-width: 60%;
+      }
+  }
+  
+  @media only screen and (max-width: 600px) { 
+      .productView-images {
+        display: none;
+      }
+  
+      .productView-details {
+        max-width: unset;
+      }
+    }
+}
+
+#inclusion {
+  display: none;
+  margin-bottom: 20px;
+  flex-direction: column;
+  max-width: 366px;
+
+  h4 {
+    font-size: 18px;
+  }
+
+  input[type='radio'] {
+    width: unset;
+
+    &:first-of-type {
+      margin-right: 20px;
+    }
+  }
+
+  input {
+    border: none;
+    border-bottom: 1px solid $black;
+    background: transparent;
+    text-align: center;
+    width: 100px;
+    margin-left: 10px;
+
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &[type='number'] {
+      -moz-appearance: textfield;
+    }
+  }
+}
+
+#inclusionHeading {
+  margin-top: 0;
+}
+
+#inclusionSelect {
+  display: flex;
+  flex-direction: column;
+  background: #eceff1;
+  padding: 10px;
+
+  p {
+    margin-bottom: 0;
+    margin-top: 10px;
+  }
+
+  .inputs-container {
+    display: flex;
+    flex-direction: row;
+    // align-tracks: left;
+    // width: 100px;
+    align-items: center;
+
+    .input-wrapper {
+      max-width: 25%;
+
+      label {
+        text-align: left;
+      }
+
+      input {
+        border: none;
+        border-bottom: 1px solid $black;
+        background: transparent;
+        text-align: center;
+        width: 80px;
+
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        &[type='number'] {
+          -moz-appearance: textfield;
+        }
+      }
+    }
+
+    span {
+      margin: 0 10px;
+      font-weight: bolder;
+    }
+  }
+}
+
+.disclaimer {
+  margin-top: 20px;
+  font-size: 12px;
+  font-style: italic;
+}
+
+#visual-rectangle,
+#visual-circle {
+  text-align: center;
+}
+.shape-visual {
+  // width: 100%;
+}
+
+.squareImage,
+.circleImage {
+  height: 100px !important;
+  object-fit: contain;
+}
+
+#visual-circle {
+  img {
+    // height: 150px;
+    margin-top: -50px;
+
+    @media only screen and (max-width: 800px) {
+      margin-top: 20px;
+    }
+  }
+}
+
+.progress {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  list-style: none;
+
+  &-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 150px;
+
+    p {
+      margin-bottom: 0;
+      margin-top: 5px;
+
+      @media only screen and (max-width: 600px) {
+        font-size: 12px;
+      }
+    }
+
+    &__number {
+      display: flex;
+      padding: 0;
+      margin: 0;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #d3d3d3;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      position: relative;
+      transition: all .2s;
+      font-family: "Interstate";
+      color: #d3d3d3;
+
+      &:last-child {
+        color: yellow !important;
+
+        &::after {
+          background-color: red;
+          content: "";
+          display: block;
+          height: 2px;
+          position: absolute;
+          width: 112px;
+          left: 31px;
+          transition: all .2s;
+        }
+      }
+  
+      &:hover {
+        cursor: default;
+      }
+
+      &::after {
+        background-color: #d3d3d3;
+        content: "";
+        display: block;
+        height: 2px;
+        position: absolute;
+        width: 112px;
+        left: 31px;
+        transition: all .2s;
+
+        @media only screen and (max-width: 800px) {
+          width: 74px;
+        }
+
+        @media only screen and (max-width: 600px) {
+          width: 37px;
+        }
+      }
+    }
+
+    &:last-of-type {
+      .progress-step__number {
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+  
+
+  .active-step {
+    background: $blue;
+    color: $white;
+    border-color: $blue;
+  }
+
+  .completed-step {
+    background: $green;
+    color: $white;
+    border-color: $green;
+
+    &::after {
+      background-color: $green;
+    }
+  }
+
+  &:last-child {
+    display: none;
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    width: 700px;
+  }
+
+  @media only screen and (max-width: 800px) {
+    width: 450px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    width: 300px;
+  }
+}

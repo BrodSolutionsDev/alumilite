@@ -1,0 +1,17 @@
+
+.heroCarousel .slick-dots {
+	bottom: -0.5rem;
+}
+
+@media screen and (max-width: 800px) {
+    .heroCarousel {
+        display: none;
+    }
+    .mobile-carousel {
+        display: block!important;
+        padding-top: 40px !important;
+        .slick-dotted.slick-slider {
+            margin-bottom: 0px;
+        }
+    }
+}

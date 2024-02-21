@@ -1,0 +1,552 @@
+{{#partial "page"}}
+
+
+<div style="width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center;">
+  <section class="calc-diretions">
+    <h2>How to use our calculator</h2>
+    <section id="calc-directions__cards" style="display: flex;"></section>
+  </section>
+</div>
+<script type="module">
+  import calculator from '../../../../assets/js/theme/custom/calculator/calculator-object.js';
+  // import calc_instructions from '../../../../assets/js/theme/custom/calculator/instructions/calc-instructions.js';
+
+  var instructions = document.querySelector('.calc-directions');
+
+  var cards = document.querySelector('.calc-directions__cards');
+  var calc_instructions = Object.values(calculator.instructions);
+
+  calc_instructions.forEach((item, i) => {
+    var calc_card = document.createElement('div');
+    calc_card.className = "calc-card";
+    calc_card.innerHTML = `
+      <img class="calc-card-img" src="step ${i + 1} image" alt="select your project" />
+      <div class="calc-card-inner" style="text-align: left !important">
+        <h3>Step ${i + 1}</h3>
+        <p>${item.heading}</p>
+        <p>${item.description}</p>
+      </div>
+    `;
+    cards.appendChild(calc_card);
+  })
+</script>
+
+<div class="calc">
+  <h1>Volume Calculator</h1>
+
+  <section class="calc-directions">
+    <h2>How to use our calculator</h2>
+    <section class="calc-directions__cards">
+      <!-- Step 1 -->
+      <div class="calc-card">
+        <img class="calc-card-img" src="Step 1 Image" alt="select your project" />
+        <div class="calc-card-inner">
+          <h3>Step 1</h3>
+          <p>Select the project you're working on.</p>
+          <p>
+            Selecting your project helps ensure that the calculator gives you
+            the most accurate results based on the needs of your project
+            requires.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="calc-card">
+        <img class="calc-card-img" src="Step 2 Image" alt="select your product" />
+        <div class="calc-card-inner">
+          <h3>Step 2</h3>
+          <p>Select the product you will be using.</p>
+          <p>
+            By selecting your product, we can recommend the amount you'll need
+            and offer you a link to add it to your cart.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="calc-card">
+        <img class="calc-card-img" src="Step 3 Image" alt="select the shape" />
+        <div class="calc-card-inner">
+          <h3>Step 3</h3>
+          <p>
+            Select the shape of your mold/project and fill in the values. We'll
+            do the math for you.
+          </p>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="calc-project" id="calc-project">
+    <h2>What project are you working on?</h2>
+    <section class="calc-project__cards">
+      <!-- Surface Coat -->
+      <a class="calc-card" id="project-surfaceCoat" href="#calc-products-surface">
+        <img src="" alt="Surface Coat Image" class="calc-card-img" />
+        <div class="calc-card__container">
+          <h3>Surface Coat</h3>
+          <p>A brief description about surface coats.</p>
+          <p>Example: 1, 2, 3</p>
+        </div>
+      </a>
+
+      <!-- Flood coat -->
+      <a class="calc-card" id="project-floodCoat" href="#calc-products-flood">
+        <img src="" alt="Flood Coat Image" class="calc-card-img" />
+        <div class="calc-card-inner">
+          <h3>Flood coat</h3>
+          <p>A brief description about Flood coats.</p>
+          <p>Example: 1, 2, 3</p>
+        </div>
+      </a>
+
+      <!-- Tumbler -->
+      <a class="calc-card" id="project-tumbler" href="#calc-products-tumbler">
+        <img src="" alt="Tumbler Image" class="calc-card-img" />
+        <div class="calc-card-inner">
+          <h3>Tumbler</h3>
+          <p>A brief description about tumblers.</p>
+          <p>Example: 1, 2, 3</p>
+        </div>
+      </a>
+
+      <!-- Casting/molding -->
+      <a class="calc-card" id="project-molding" href="#calc-products-mold">
+        <img src="" alt="Casting/Molding Image" class="calc-card-img" />
+        <div class="calc-card-inner">
+          <h3>Casting/molding</h3>
+          <p>A brief description about Casting/moldings.</p>
+          <p>Example: 1, 2, 3</p>
+        </div>
+      </a>
+    </section>
+  </section>
+
+  <section class="calc-products" id="calc-products-surface">
+    <h2 id="calc-products-heading">What product are you using?</h2>
+    <section class="calc-products__cards">
+      <!-- Amazing Clear Cast -->
+      <a class="calc-card" href="#calc-calculator" aria-valuetext="clearCast">
+        <img src="" alt="Amazing Clear Cast Image" class="calc-card-img" />
+        <div class="calc-card-inner">
+          <h3>Amazing Clear Cast</h3>
+          <p>A brief description about Amazing Clear Cast.</p>
+          <p>Example: 1, 2, 3</p>
+        </div>
+      </a>
+
+      <!-- Amazing Deep Pour -->
+      <a class="calc-card" href="#calc-calculator" aria-valuetext="deepPour">
+        <img src="" alt="Amazing Deep Pour Image" class="calc-card-img" />
+        <div class="calc-card-inner">
+          <h3>Amazing Deep Pour</h3>
+          <p>A brief description about Amazing Deep Pour.</p>
+          <p>Example: 1, 2, 3</p>
+        </div>
+      </a>
+    </section>
+  </section>
+
+  <section class="calc-products" id="calc-products-flood">
+    <h2 id="calc-products-heading">What product are you using?</h2>
+    <section class="calc-products__cards">
+      <!-- Amazing Clear Cast -->
+      <a class="calc-card" href="#calc-calculator" aria-valuetext="clearCast">
+        <img src="" alt="Amazing Clear Cast Image" class="calc-card-img" />
+        <div class="calc-card-inner">
+          <h3>Amazing Clear Cast</h3>
+          <p>A brief description about Amazing Clear Cast.</p>
+          <p>Example: 1, 2, 3</p>
+        </div>
+      </a>
+
+      <!-- Amazing Deep Pour -->
+      <a class="calc-card" href="#calc-calculator" aria-valuetext="deepPour">
+        <img src="" alt="Amazing Deep Pour Image" class="calc-card-img" />
+        <div class="calc-card-inner">
+          <h3>Amazing Deep Pour</h3>
+          <p>A brief description about Amazing Deep Pour.</p>
+          <p>Example: 1, 2, 3</p>
+        </div>
+      </a>
+    </section>
+  </section>
+
+  <section class="calc-products" id="calc-products-tumbler">
+    <h2 id="calc-products-heading">What product are you using?</h2>
+    <section class="calc-products__cards">
+      <!-- Alumilite Clear Cast -->
+      <a class="calc-card" href="#calc-calculator" aria-valuetext="clearCast">
+        <img src="" alt="Alumilite Clear Cast Image" class="calc-card-img" />
+        <div class="calc-card-inner">
+          <h3>Alumilite Clear Cast</h3>
+          <p>A brief description about Alumilite Clear Cast.</p>
+          <p>Example: 1, 2, 3</p>
+        </div>
+      </a>
+
+      <!-- Alumilite Clear Slow -->
+      <a class="calc-card" href="#calc-calculator" aria-valuetext="clearSlow">
+        <img src="" alt="Alumilite Clear Slow Image" class="calc-card-img" />
+        <div class="calc-card-inner">
+          <h3>Alumilite Clear Slow</h3>
+          <p>A brief description about Alumilite Clear Slow.</p>
+          <p>Example: 1, 2, 3</p>
+        </div>
+      </a>
+
+      <!-- Alumilite Water Clear -->
+      <a class="calc-card" href="#calc-calculator" aria-valuetext="waterClear">
+        <img src="" alt="Alumilite Water Clear Image" class="calc-card-img" />
+        <div class="calc-card-inner">
+          <h3>Alumilite Water Clear</h3>
+          <p>A brief description about Alumilite Water Clear.</p>
+          <p>Example: 1, 2, 3</p>
+        </div>
+      </a>
+
+      <!-- Alumilite UV -->
+      <a class="calc-card" href="#calc-calculator" aria-valuetext="uv">
+        <img src="" alt="Alumilite UV Image" class="calc-card-img" />
+        <div class="calc-card-inner">
+          <h3>Alumilite UV</h3>
+          <p>A brief description about Alumilite UV.</p>
+          <p>Example: 1, 2, 3</p>
+        </div>
+      </a>
+
+      <!-- Amazing Quick Coat -->
+      <a class="calc-card" href="#calc-calculator" aria-valuetext="quickCoat">
+        <img src="" alt="Amazing Quick Coat Image" class="calc-card-img" />
+        <div class="calc-card-inner">
+          <h3>Amazing Quick Coat</h3>
+          <p>A brief description about Amazing Quick Coat.</p>
+          <p>Example: 1, 2, 3</p>
+        </div>
+      </a>
+    </section>
+  </section>
+
+  <section class="calc-products" id="calc-products-mold">
+    <h2 id="calc-products-heading">What product are you using?</h2>
+    <section class="calc-products__cards">
+      <!-- Amazing Clear Cast Plus -->
+      <a class="calc-card" href="#calc-calculator" aria-valuetext="clearCastPlus">
+        <img src="" alt="Amazing Clear Cast Plus Image" class="calc-card-img" />
+        <div class="calc-card-inner">
+          <h3>Amazing Clear Cast Plus</h3>
+          <p>A brief description about Amazing Clear Cast Plus.</p>
+          <p>Example: 1, 2, 3</p>
+        </div>
+      </a>
+
+      <!-- Alumilite White -->
+      <a class="calc-card" id="clearCastTest" href="#calc-calculator" aria-valuetext="white">
+        <img src="" alt="Alumilite White Image" class="calc-card-img" />
+        <div class="calc-card-inner">
+          <h3>Alumilite White</h3>
+          <p>A brief description about Alumilite White.</p>
+          <p>Example: 1, 2, 3</p>
+        </div>
+      </a>
+
+      <!-- Amazing Mold Maker -->
+      <a class="calc-card" href="#calc-calculator" aria-valuetext="moldMaker">
+        <img src="" alt="Amazing Mold Maker Image" class="calc-card-img" />
+        <div class="calc-card-inner">
+          <h3>Amazing Mold Maker</h3>
+          <p>A brief description about Amazing Mold Maker.</p>
+          <p>Example: 1, 2, 3</p>
+        </div>
+      </a>
+    </section>
+  </section>
+
+  <section class="calc-calculator" id="calc-calculator">
+    <h2>What are the surface dimensions?</h2>
+    <div class="calc-calculator__content">
+      <div class="calc-calculator__input-values">
+        <h3>What shape is your project?</h3>
+        <div class="input-values__shapes">
+          <div class="calculator calc-card">
+            <img
+              src="https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/cube-dark.png?t=1640028152"
+              alt="Square" class="calc-card-img" />
+            <div class="calc-card-inner">
+              <h4 class="shape-select" id="rectangle">Rectangle</h4>
+            </div>
+          </div>
+          <div class="calculator calc-card">
+            <img
+              src="https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/cylinder-dark.png?t=1640028448"
+              alt="cylinder" class="calc-card-img" />
+            <div class="calc-card-inner">
+              <h4 class="shape-select">Cylinder</h4>
+            </div>
+          </div>
+        </div>
+        <div class="input-values__inputs">
+        </div>
+      </div>
+      <div class="calc-calculator__visual">
+        <img id="visual-rectangle"
+          src="https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/box-dark.png?t=1640095554"
+          alt="" />
+        <img id="visual-cylinder"
+          src="https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/cylinder-dark-2.png?t=1640619614"
+          alt="">
+      </div>
+    </div>
+  </section>
+
+  <section class="calc-amounts" id="calc-amounts">
+    <div class="total">
+      <h3>Ounces:</h3>
+      <span id="total-ounces">24</span>
+    </div>
+
+    <div class="total">
+      <h3>Gallons:</h3>
+      <span id="total-gallons">.4</span>
+    </div>
+
+    <div class="total">
+      <h3>Milileters:</h3>
+      <span id="total-gallons">236</span>
+    </div>
+
+    <div class="total">
+      <h3>Liters:</h3>
+      <span id="total-gallons">2360</span>
+    </div>
+  </section>
+
+  <section class="calc-results" id="calc-results">
+    <h2>Here's how much you'll need</h2>
+    <div class="calc-results__inner">
+      <img
+        src="https://cdn11.bigcommerce.com/s-2yiip5r05b/images/stencil/1280x1280/products/237/952/ACC_8_oz-2__33687.1636577670.jpg?c=1"
+        alt="" />
+      <div class="calc-results__inner-bio">
+        <h3>Amazing Clear Cast</h3>
+        <p>
+          Amazing Clear Cast is a casting and coating clear epoxy resin that
+          cures to a solid, strong and clear finish. Casting resin clear-ly the
+          winner! Amazing Clear Cast is compliant with FDA 21 CFR 175.300.
+        </p>
+        <p>$89.50 (Calculated by the volume needed from the calculator)</p>
+        <button id="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+{{/partial}} {{> layout/base}}
+
+<!-- <script>
+  // =========================================================================================
+  // TOP LEVEL VARIABLES
+  // =========================================================================================
+  var totals = document.getElementById("calc-amounts");
+  var results = document.getElementById("calc-results");
+  var calculator = document.getElementById("calc-calculator");
+  var productsHeading = document.getElementById("calc-products-heading");
+  var calculatorCards = document.getElementsByClassName("calculator calc-card");
+  var selectedProduct;
+
+  // =========================================================================================
+  // EACH CARD IN PROJECTS SECTION
+  // =========================================================================================
+  var projectCards = document.querySelectorAll(".calc-project__cards .calc-card");
+  var surface = projectCards[0];
+  var flood = projectCards[1];
+  var tumbler = projectCards[2];
+  var mold = projectCards[3];
+
+  surface.addEventListener("click", function () {
+    surface.classList.add("selected");
+    flood.classList.remove("selected");
+    tumbler.classList.remove("selected");
+    mold.classList.remove("selected");
+    document.getElementById("calc-products-surface").style.display = "flex";
+    document.getElementById("calc-products-flood").style.display = "none";
+    document.getElementById("calc-products-tumbler").style.display = "none";
+    document.getElementById("calc-products-mold").style.display = "none";
+  });
+
+  flood.addEventListener("click", function () {
+    surface.classList.remove("selected");
+    flood.classList.add("selected");
+    tumbler.classList.remove("selected");
+    mold.classList.remove("selected");
+    document.getElementById("calc-products-surface").style.display = "none";
+    document.getElementById("calc-products-flood").style.display = "flex";
+    document.getElementById("calc-products-tumbler").style.display = "none";
+    document.getElementById("calc-products-mold").style.display = "none";
+  });
+
+  tumbler.addEventListener("click", function () {
+    surface.classList.remove("selected");
+    flood.classList.remove("selected");
+    tumbler.classList.add("selected");
+    mold.classList.remove("selected");
+    document.getElementById("calc-products-surface").style.display = "none";
+    document.getElementById("calc-products-flood").style.display = "none";
+    document.getElementById("calc-products-tumbler").style.display = "flex";
+    document.getElementById("calc-products-mold").style.display = "none";
+  });
+
+  mold.addEventListener("click", function () {
+    surface.classList.remove("selected");
+    flood.classList.remove("selected");
+    tumbler.classList.remove("selected");
+    mold.classList.add("selected");
+    document.getElementById("calc-products-surface").style.display = "none";
+    document.getElementById("calc-products-flood").style.display = "none";
+    document.getElementById("calc-products-tumbler").style.display = "none";
+    document.getElementById("calc-products-mold").style.display = "flex";
+  });
+
+  // =========================================================================================
+  // EACH PRODUCT IN PRODUCTS SECTION
+  // =========================================================================================
+  var surfaceCards = document.querySelectorAll("#calc-products-surface .calc-products__cards .calc-card");
+  var floodCards = document.querySelectorAll("#calc-products-flood .calc-products__cards .calc-card");
+  var tumblerCards = document.querySelectorAll("#calc-products-tumbler .calc-products__cards .calc-card");
+  var moldCards = document.querySelectorAll("#calc-products-mold .calc-products__cards .calc-card");
+
+  surfaceCards.forEach(card => {
+    card.addEventListener('click', function () {
+      surfaceCards.forEach(card => card.classList.remove('selected'));
+      this.classList.add('selected');
+
+      if (card.classList.contains('selected')) {
+        selectedProduct = card.ariaValueText;
+      }
+
+      calculator.style.display = "flex";
+    });
+  });
+
+  floodCards.forEach(card => {
+    card.addEventListener('click', function () {
+      floodCards.forEach(card => card.classList.remove('selected'));
+      this.classList.add('selected');
+
+      if (card.classList.contains('selected')) {
+        selectedProduct = card.ariaValueText;
+      }
+
+      calculator.style.display = "flex";
+    });
+  });
+
+  tumblerCards.forEach(card => {
+    card.addEventListener('click', function () {
+      tumblerCards.forEach(card => card.classList.remove('selected'));
+      this.classList.add('selected');
+
+      if (card.classList.contains('selected')) {
+        selectedProduct = card.ariaValueText;
+      }
+
+      calculator.style.display = "flex";
+    });
+  });
+
+  moldCards.forEach(card => {
+    card.addEventListener('click', function () {
+      moldCards.forEach(card => card.classList.remove('selected'));
+      this.classList.add('selected');
+
+      if (card.classList.contains('selected')) {
+        selectedProduct = card.ariaValueText;
+      }
+
+      calculator.style.display = "flex";
+    });
+  });
+
+  // =========================================================================================
+  // CALCULATOR LOGIC
+  // =========================================================================================
+
+
+
+  calculatorCards[0].addEventListener('click', function () {
+    calculatorCards[0].classList.add('selected');
+    calculatorCards[1].classList.remove('selected');
+    document.getElementById('visual-rectangle').style.display = "block";
+    document.getElementById('visual-cylinder').style.display = "none";
+    document.querySelector('.input-values__inputs').innerHTML = `
+    <div class="inputs-container">
+      <div class="input-wrapper">
+        <label for="width">Width</label>
+        <input type="number" id="width" />
+      </div>
+      <span>&#10005;</span>
+      <div class="input-wrapper">
+        <label for="length">Length</label>
+        <input type="number" id="length" />
+      </div>
+      <span>&#10005;</span>
+      <div class="input-wrapper">
+        <label for="thickness">Thickness</label>
+        <input type="number" id="thickness" />
+      </div>
+    </div>
+    <p>*values are in inches</p>
+    <button id="calculate">Calculate</button>
+    `;
+
+    document.getElementById('calculate').addEventListener('click', function () {
+      totals.style.display = "flex";
+      results.style.display = "flex";
+    });
+  });
+
+  calculatorCards[1].addEventListener('click', function () {
+    calculatorCards[0].classList.remove('selected');
+    calculatorCards[1].classList.add('selected');
+    document.getElementById('visual-rectangle').style.display = "none";
+    document.getElementById('visual-cylinder').style.display = "block";
+
+    document.querySelector('.input-values__inputs').innerHTML = `
+    <div class="inputs-container">
+      <div class="input-wrapper">
+        <label for="radius">Radius</label>
+        <input type="number" id="radius" />
+      </div>
+      <span>&#10005;</span>
+      <div class="input-wrapper">
+        <label for="height">Height</label>
+        <input type="number" id="height" />
+      </div>
+    </div>
+    <p>*values are in inches</p>
+    <button id="calculate">Calculate</button>
+    `;
+
+    document.getElementById('calculate').addEventListener('click', function () {
+      results.style.display = "flex";
+      totals.style.display = "flex";
+    });
+  });
+
+  document.getElementById('calculate').addEventListener('click', function () {
+    results.style.display = "flex !important";
+    // if (width.value != "" && length.value != "" && thickness.value != "") {
+    //   // document.getElementById("result-values").classList.add("show-section");
+    //   document.getElementById("total").innerHTML = width.value * length.value * thickness.value;
+    // } else {
+    //   // document.getElementById("result-values").classList.add("hide-section");
+    // }
+  })
+
+  // function calculate() {
+  //   document.getElementById("results").style.display = "flex";
+  //   // document.getElementById("total").innerHTML = width.value * length.value * thickness.value;
+  // }
+
+</script> -->

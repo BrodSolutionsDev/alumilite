@@ -1,0 +1,371 @@
+@import "variables";
+// Product Page
+.productView-images {
+  height: fit-content;
+}
+.productView-details {
+  color: $black;
+}
+.productView-desc {
+  padding-top: 15px;
+}
+.productView-price {
+  font-family: $merriweather;
+  font-size: 1.75rem;
+  color: $red;
+  font-weight: bold;
+  margin: 15px 0;
+}
+.grid-bg {
+  background-color: #ffffff;
+}
+.form-radio:checked + .form-option {
+  border-color: $blue;
+  box-shadow: 0 0 0 1px $blue;
+  background: #fff;
+}
+.form-option {
+  border: 1px solid $grey;
+  color: $black;
+}
+.productView-options {
+  margin-top: 0;
+}
+.productView-options-wrap .productView-options-inner {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+.productView-options .form-field {
+  font-size: 0;
+  margin-bottom: 0.5rem;
+}
+.productView .form-label.form-label--alternate,
+.productView .productView-shipping .productView-info-name,
+.productView .productView-giftWrap .productView-info-name,
+.form-field--stock .productView-info-name {
+  color: $black;
+  font-family: $interstate;
+  text-transform: uppercase;
+}
+.addthis_toolbox {
+    width:unset;
+}
+
+// Sticky scroll
+@media only screen and (min-width: 801px) {
+  .stickyOnScroll {
+    position: sticky;
+    top: 120px;
+  }
+
+  .mobile-options {
+    display: none
+  }
+}
+
+@media only screen and (max-width: 450px) {
+   .fixedTopCartButton {
+      position: fixed;
+      top: 90px;
+      //top: 167px;
+      left: 0;
+      width: 100%;
+      z-index: 5;
+    }
+
+    .fixedBottomCartButton {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 5;
+    }
+
+    .mobile-options {
+      height: 77px;
+    }
+
+    .mobile-options-hide {
+      display: none;
+    }
+
+    .mobile-options-bottom {
+      width: 100%;
+      left: 0;
+      position: fixed;
+      bottom: 45px;
+      background: white;
+      overflow-x: scroll;
+      padding-top: 16px;
+      z-index: 5;
+
+      .form-label.form-label--alternate.form-label--inlineSmall {
+        display: none;
+      }
+
+      .form-field {
+        width: max-content;
+        z-index: 5;
+        padding: 0 10px;
+
+        .form-option-wrapper:last-of-type {
+          .form-option {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+    .mobile-options-top {
+      width: 100%;
+      left: 0;
+      position: fixed;
+      padding-top: 16px;
+      // top: 138px;
+      top: 90px;
+      background: white;
+      overflow-x: scroll;
+      z-index: 5;
+
+      .form-label.form-label--alternate.form-label--inlineSmall {
+        display: none;
+      }
+
+      .form-field {
+        width: max-content;
+        z-index: 5;
+        padding: 0 10px;
+
+        .form-option-wrapper:last-of-type {
+          .form-option {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+}
+
+// Custom Fields
+.custom-fields {
+  h4 {
+    text-align: center;
+    text-decoration: underline;
+  }
+  a {
+    color: $grey;
+  }
+  a:hover {
+    color: #fff;
+  }
+  p {
+    margin-bottom: 80px;
+  }
+  .more-info {
+    .flex-50 {
+      padding-top: 80px;
+    }
+  }
+  .tds {
+    position: relative;
+    margin-top: 80px;
+  }
+  .tds:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -59px; /* height of image */
+    height: 59px; /* height of image*/
+    background: url('https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/tds-icon.png') no-repeat center;
+  }
+  .sds {
+    position: relative;
+    margin-top: 80px;
+  }
+  .sds:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -59px; /* height of image */
+    height: 59px; /* height of image*/
+    background: url('https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/sds-icon.png') no-repeat center;
+  }
+  .msds {
+    text-align: center;
+    margin-top: -60px;
+    padding: 0;
+
+    @media only screen and (max-width: 832px) {
+      margin-top: -180px;
+    }
+
+    @media only screen and (max-width: 800px) {
+      margin-top: -160px;
+    }
+  }
+}
+.productView-info-name,
+.productView-info-value {
+  font-size: 16px;
+}
+.productView-info {
+  //width: 50%;
+  //text-align: right;
+  justify-content: center;
+  display: grid;
+}
+.productView-info > :first-child {
+  margin-top: 0;
+}
+.productView-info-name {
+  font-family: $merriweather;
+}
+
+// Video
+#product-videos {
+  padding: 40px 0;
+}
+.videoGallery-item {
+  width: 100%;
+
+  .video-body {
+    display: none;
+  }
+}
+.videoGallery {
+  .flex-75 {
+    padding-left: 0px;
+    padding-top: 0px;
+  }
+  .flex-25 {
+    padding-right: 0px;
+    padding-top: 0px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .videoGallery {
+    .flex-66 {
+      width: 100%;
+      padding: 0px;
+      padding-right: 10px;
+    }
+    .flex-33 {
+      width: 100%;
+      padding: 0px;
+      padding-left: 10px;
+    }
+  }
+  .productView-images {
+    margin-bottom: 1rem;
+  }
+  .productView-details {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+}
+
+
+.videoGallery-main {
+  width: 100%;
+}
+.videoGallery-list {
+  display: flex;
+  width: fit-content;
+}
+
+.list-wrapper {
+  overflow-x: scroll;
+}
+
+.videoGallery-item {
+  width: 250px;
+  padding-right: 0;
+
+  .video-figure {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    width: 150px;
+  }
+}
+
+
+// Product Quick view
+.productView-title {
+  font-family: $interstate;
+  text-transform: uppercase;
+  color: $blue;
+}
+.fastCart .productView .productView-price {
+  font-size: 16px;
+}
+.productView-brand {
+  display: none;
+}
+.productView-details {
+  margin-bottom: 2rem;
+}
+// Search Dropdown
+.quickSearchResults .card-image {
+  max-height: 75px;
+  padding: 0;
+}
+// Product Selector pages
+.card .card-figure {
+  height: auto;
+}
+
+.card-img-container::after {
+	content: '';
+	display: block;
+	height: 0;
+	width: 100%;
+	padding-bottom: 100%;
+}
+
+.stock-badge {
+	color: $red;
+}
+
+// Cart Page
+.cart-total .form-select {
+  padding: 0.25rem 0.75rem;
+}
+.cart-item-brand {
+  display: none;
+}
+
+//Compare Page
+.compareTable-product {
+.card-figure {
+  background-color: $white;
+}
+}
+
+// Preview Cart
+.previewCart {
+  .productView-info {
+    display: inline;
+  }
+}
+// Category Page Cards
+.card, .productGrid .card {
+	height: unset;
+}
+
+// Reviews
+#reviews-accordion {
+  text-align: center;
+}
+.icon.icon--ratingFull {
+  filter: invert(78%) sepia(76%) saturate(724%) hue-rotate(335deg) brightness(105%) contrast(100%);
+}
+
+.pagination-list {
+  float: none;
+}

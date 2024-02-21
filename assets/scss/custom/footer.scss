@@ -1,0 +1,52 @@
+// Footer
+.footer {
+  border-top: none;
+}
+
+.footer-newsletter {
+  padding: 25px 15px;
+  background-color: $black;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.footer-info .socialLinks .icon {
+  width: 25px;
+  height: 25px;
+}
+footer .socialLinks-item {
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 4px;
+  background: #2962ff;
+  box-shadow: inset 23px 23px 45px #1e49bd, inset -23px -23px 45px #347bff;
+}
+.footer-logo-image-container {
+	height: 50px;
+	width: 150px;
+  }
+.business-hours {
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .footer-info-col {
+    border-bottom: none;
+  }
+  .footer-payment-icons {
+    border-bottom: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .footer-logo-image-container {
+	margin: 0 auto;
+  }
+  .footer-mobile-limited {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	max-width: 100%;
+}
+}

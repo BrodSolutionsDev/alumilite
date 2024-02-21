@@ -1,0 +1,385 @@
+
+@import "variables";
+#course-info-main {
+  width: 100%;
+  height: 100%;
+  margin-top: -40px;
+  padding: 0px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  top: 0;
+  background-color: #fff;
+
+  .course-info-main {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    top: 0;
+  }
+
+  #course-info-hero {
+    margin: 30px 50px 0 80px;
+    height: 100%;
+    max-width: 1300px;
+    h5 {
+      font-family: Interstate;
+
+text-transform: none;
+
+font-size: 19px;
+    }
+    a {
+      margin: 5px;
+      @media only screen and (max-width: 800px) {
+        margin: 10px;
+      }
+    }
+    @media only screen and (max-width: 800px) {
+      justify-content: center;
+      text-align: center;
+      min-width: 100%;
+      margin: 0;
+    }
+
+  }
+  .course-button {
+    background-color: white;
+    border: solid $red 2px;
+    color: $red;
+    cursor: pointer;
+  }
+  .course-info-wrapper {
+    top: 0;
+  }
+
+  #key-highlights {
+    justify-content: center;
+    padding: 10px 0 30px 30px;
+
+    .key-highlights-wrapper {
+      // border: solid purple 3px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      .key-highlights-item {
+        p {
+          padding: 5px;
+          margin: 0px;
+          align-items: center;
+          color: black;
+          img {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+
+            @media only screen and (max-width: 800px) {
+              margin: auto auto 20px auto;
+            }
+          }
+          @media only screen and (max-width: 800px) {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+          }
+        }
+        @media only screen and (max-width: 800px) {
+          display: grid;
+          grid-template-rows: 1fr;
+          margin: auto;
+          padding: 0;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+      @media only screen and (max-width: 800px) {
+        grid-template-columns: 1fr 1fr;
+      }
+      @media only screen and (max-device-width: 800px) {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+    }
+    @media only screen and (max-width: 800px) {
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+      }
+
+  }
+
+  #course-info{
+    margin: 0 auto;
+    width: 100%;
+
+    @media only screen and (max-device-width: 800px) {
+      justify-content: center;
+      text-align: center;
+      padding: 0;
+      margin: auto;
+    }
+  }
+
+  .course-info-container{
+    max-width: 1200px;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .course-info-header {
+    padding: 10px 0 0 0px;
+    // margin-left: 30px;
+
+    @media only screen and (max-device-width: 800px) {
+      justify-content: center;
+      text-align: center;
+      padding: 0;
+    }
+  }
+
+  .course-info-wrapper {
+    // background-color: green;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+    @media only screen and (max-device-width: 800px) {
+      flex-direction: column-reverse;
+    }
+
+    .flex-50, .course-video {
+      padding: 0;
+      height: 350px;
+      width: 100%;
+      @media only screen and (max-device-width: 800px) {
+        width: 400px;
+        height: 100%;
+      }
+    }
+
+    .course-info-image{
+      height: 450px;
+      width: 100%;
+
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .course-acordion{
+    height:350px;
+    overflow-y: scroll;
+    padding: 0;
+  }
+
+  #course-info ul {
+    text-align: left;
+    width: 90%;
+    @media only screen and (max-device-width: 800px) {
+       width: 100%;
+      }
+  }
+
+  #course-info h1 {
+    color: #000;
+    margin-top: 30px;
+    margin-top: 0;
+  }
+
+  #course-info h2 {
+    color: $red;
+    font-size: 20px;
+    line-height: 34px;
+    text-align: left;
+    padding: 15px 15px 0;
+    text-transform: none;
+    font-weight: 300;
+    letter-spacing: 1px;
+    display: block;
+    margin: 0;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  #course-info p {
+    color: #fff;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.45;
+    position: relative;
+    overflow: hidden;
+    max-height: 250px;
+    will-change: max-height;
+    display: inline-block;
+    opacity: 1;
+    transform: translate(0, 0);
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 0 50px 0 15px;
+    transition: 0.3s opacity, 0.6s max-height;
+    hyphens: auto;
+    z-index: 2;
+  }
+
+  #course-info ul {
+    list-style: none;
+    perspective: 900;
+    padding: 0;
+    margin: 0;
+  }
+  #course-info ul li {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    background: $color-greyDark;
+  }
+  #course-info ul li + li {
+    margin-top: 5px;
+  }
+  #course-info ul li:last-of-type {
+    padding-bottom: 0;
+  }
+  #course-info ul li i {
+    position: absolute;
+    transform: translate(-6px, 0);
+    margin-top: 28px;
+    right: 15px;
+  }
+  #course-info ul li i:before,
+  ul li i:after {
+    content: "";
+    position: absolute;
+    background-color: $red;
+    width: 3px;
+    height: 9px;
+  }
+  #course-info ul li i:before {
+    transform: translate(-2px, 0) rotate(45deg);
+  }
+  #course-info ul li i:after {
+    transform: translate(2px, 0) rotate(-45deg);
+  }
+  #course-info ul li input[type="checkbox"] {
+    position: absolute;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    touch-action: manipulation;
+  }
+  #course-info ul li input[type="checkbox"]:checked ~ h2 {
+    color: #fff;
+  }
+  #course-info ul li input[type="checkbox"]:checked ~ p {
+    max-height: 0;
+    transition: 0.3s;
+    opacity: 0;
+  }
+  #course-info ul li input[type="checkbox"]:checked ~ i:before {
+    transform: translate(2px, 0) rotate(45deg);
+  }
+  #course-info ul li input[type="checkbox"]:checked ~ i:after {
+    transform: translate(-2px, 0) rotate(-45deg);
+  }
+  @media only screen and (max-device-width: 800px) {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.course-bottom-header {
+  padding-left: 30px;
+  @media only screen and (max-device-width: 800px) {
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+  }
+}
+#course-bottom-header h4{
+    font-family: Interstate;
+    text-transform: none;
+    font-size: 19px;
+}
+
+.featured-section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #fff;
+}
+#instructor-hero {
+  // padding: 0 100px 0 90px;
+  max-width: 1300px;
+  margin: 0 auto;
+  h5{
+      font-family: Interstate;
+text-transform: none;
+font-size: 19px;
+  }
+  @media only screen and (max-device-width: 800px) {
+          padding: 0;
+        }
+  .instructor-hero {
+
+    @media only screen and (max-device-width: 800px) {
+      text-align: center;
+      flex-direction: column-reverse;
+    }
+  }
+
+  .instructor-hero-image {
+    justify-content: flex-end;
+    padding: 0;
+    img {
+      width: 400px;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+.course-instructor-card {
+  border-radius: 4px;
+  height: 500px;
+  width: 405px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  text-align: left;
+  box-shadow: 0px 4px 20px 5px rgba(0, 0, 0, 0.1);
+  background-image: url("https://cdn11.bigcommerce.com/s-2yiip5r05b/product_images/uploaded_images/academylandingpage-instructorphoto.jpg?t=1653666809&_gl=1*1pci4dd*_ga*MTQ0NTgwODY2NC4xNjQ4NDg1Mzg4*_ga_WS2VZYPC6G*MTY1MzY2NjcwNi4xMjYuMS4xNjUzNjY3MTU4LjU4");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  .course-instructor-card-text {
+    padding: 10px;
+
+    h4,
+    h6 {
+      color: white;
+      margin: 0;
+    }
+  }
+  @media only screen and (max-device-width: 800px) {
+      text-align: center;
+    }
+}
+.course-pixlee-container{
+  width: 100%;
+
+}
+.course-pixlee-wrapper{
+    max-width: 1300px;
+    // padding: 0 15px;
+    margin: 0 auto;
+    width: 100%;
+    min-width: 0;
+    padding: 50px 0 50px 0;
+}

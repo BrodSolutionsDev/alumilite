@@ -1,0 +1,67 @@
+@import "variables";
+
+
+.learn-card {
+  display: flex;
+  box-shadow: $box-shadow;
+  height: 400px;
+  background-color: #fff;
+  flex-direction: column !important;
+  margin: 30px auto;
+  padding: 20px;
+  transition: all 1s ease;
+  border: 2px solid $black;
+  .learn-card-header {
+    h3 {
+      text-align: center;
+      margin-bottom: 1rem;
+      padding: 0;
+      
+    }
+  }
+  .learn-card-body {
+    padding: 15px;
+  }
+  .learn-card-footer {
+    text-align: center;
+    margin-top: auto;
+  }
+}
+
+
+.blue-shadow {
+  @function shadow($x, $y, $blur, $blue) {
+    @return $x $y $blur $blue;
+  }
+  $n: 15px;
+  $blur: 0;
+  $background-color: #fff;
+  $blue-shadow0: 0 0 0 0 $blue;
+  $blue-shadow1: shadow($n, -$n, $blur, darken(#fff, 5%));
+  $blue-shadow2: shadow($n * 2, -$n * 2, $blur, darken(#fff, 10%));
+  $blue-shadow3: shadow($n * 3, -$n * 3, $blur, darken(#fff, 15%));
+  box-shadow: $blue-shadow0, $blue-shadow0, $blue-shadow0, $blue-shadow0;
+  &:hover {
+    box-shadow: $blue-shadow1, $blue-shadow2, $blue-shadow3;
+    transform: translate($n, -$n);
+  }
+}
+
+.red-shadow {
+  @function shadow($x, $y, $blur, $red) {
+    @return $x $y $blur $red;
+  }
+  $n: 15px;
+  $blur: 0;
+  $background-color: #fff;
+  $red-shadow0: 0 0 0 0 $red;
+  $red-shadow1: shadow($n, -$n, $blur, darken(#fff, 5%));
+  $red-shadow2: shadow($n * 2, -$n * 2, $blur, darken(#fff, 10%));
+  $red-shadow3: shadow($n * 3, -$n * 3, $blur, darken(#fff, 15%));
+  box-shadow: $red-shadow0, $red-shadow0, $red-shadow0, $red-shadow0;
+  
+  &:hover {
+    box-shadow: $red-shadow1, $red-shadow2, $red-shadow3;
+    transform: translate($n, -$n);
+  }
+}

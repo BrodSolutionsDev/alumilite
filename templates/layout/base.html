@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ locale_name }}">
+    <head>
+        <title>{{ head.title }}</title>
+        {{{ resourceHints }}}
+        {{{ head.meta_tags }}}
+        {{{ head.config }}}
+        {{#block "head"}} {{/block}}
+
+        <link href="{{ head.favicon }}" rel="shortcut icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="facebook-domain-verification" content="ikeimd6h8er1k3opt7ajk71pxx90r0" />
+
+        <script>
+            {{!-- Change document class from no-js to js so we can detect this in css --}}
+            document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+        </script>
+
+        {{> components/common/polyfill-script }}
+        <script>window.consentManagerTranslations = `{{{langJson 'consent_manager'}}}`;</script>
+
+        {{!-- Load Lazysizes script ASAP so images will appear --}}
+        <script>
+            {{!-- Only load visible elements until the onload event fires, after which preload nearby elements. --}}
+            window.lazySizesConfig = window.lazySizesConfig || {};
+            window.lazySizesConfig.loadMode = 1;
+        </script>
+        <script async src="{{cdn 'assets/dist/theme-bundle.head_async.js'}}"></script>
+
+        <script defer src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+        <script>
+            WebFont.load({
+                custom: {
+                    families: ['Karla', 'Roboto', 'Source Sans Pro']
+                },
+                classes: false
+            });
+        </script>
+
+        
+
+        {{ getFontsCollection }}
+        {{{stylesheet '/assets/css/theme.css'}}}
+
+        {{{head.scripts}}}
+
+        {{~inject 'zoomSize' theme_settings.zoom_size}}
+        {{~inject 'productSize' theme_settings.product_size}}
+        {{~inject 'genericError' (lang 'common.generic_error')}}
+        {{~inject 'maintenanceModeSettings' settings.maintenance}}
+        {{~inject 'adminBarLanguage' (langJson 'admin')}}
+        {{~inject 'urls' urls}}
+        {{~inject 'secureBaseUrl' settings.secure_base_url}}
+        {{~inject 'cartId' cart_id}}
+        {{~inject 'channelId' settings.channel_id}}
+        {{~inject 'template' template}}
+
+        {{#if page_type '===' 'product'}}
+            {{> components/common/facebook-like}}
+        {{else if page_type '===' 'blog' }}
+            {{> components/common/facebook-like}}
+        {{else if page_type '===' 'blog_post' }}
+            {{> components/common/facebook-like}}
+        {{/if}}
+
+        <script>
+            var theme_settings = {
+                show_fast_cart: {{theme_settings.show_fast_cart}},
+                linksPerCol: {{theme_settings.nav-links-per-col}},
+            };
+        </script>
+        <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style type="text/css" media="screen, print">
+            @font-face {font-family: "Merriweather";src: url("{{cdn 'webdav:Merriweather.otf'}}");font-display: swap;}
+            @font-face {font-family: "Interstate";src: url("{{cdn 'webdav:InterstateBold.otf'}}");font-display: swap;}
+            @font-face {font-family: "InterstateUltra";src: url("{{cdn 'webdav:InterstateUltraBlack.ttf'}}");font-display: swap;}
+            @font-face {font-family: "Flood";src: url("{{cdn 'webdav:FloodStd.otf'}}");font-display: swap;}
+        </style>
+        <!-- Pinterest verify -->
+       <meta name="p:domain_verify" content="b30b208b5087694385d5d1860186a28e"/>
+
+        {{~inject 'validationDictionaryJSON' (langJson 'validation_messages')}}
+        {{~inject 'validationFallbackDictionaryJSON' (langJson 'validation_fallback_messages')}}
+        {{~inject 'validationDefaultDictionaryJSON' (langJson 'validation_default_messages')}}
+        {{~inject 'carouselArrowAndDotAriaLabel' (lang 'carousel.arrow_and_dot_aria_label')}}
+        {{~inject 'carouselActiveDotAriaLabel' (lang 'carousel.active_dot_aria_label')}}
+        {{~inject 'carouselContentAnnounceMessage' (lang 'carousel.content_announce_message')}}
+
+        <!--<script src="https://assets.pxlecdn.com/assets/pixlee_widget_1_0_0.js"></script><div id="pixlee_init_container"></div><script type = "text/javascript" >Pixlee.init({apiKey: 'qEm0eAa02bgPoVjo0wyc',priority:true});Pixlee.addSimpleWidget({widgetId:7873668,setMetaTags:true}); </script>-->
+        
+        <!--<script src="https://assets.pxlecdn.com/assets/pixlee_widget_1_0_0.js"></script><div id="pixlee_init_container"></div><script type = "text/javascript" >Pixlee.init({apiKey: 'qEm0eAa02bgPoVjo0wyc',priority:true});Pixlee.addSimpleWidget({widgetId:9664246}); </script>-->
+        <script defer src=https://assets.pxlecdn.com/assets/pixlee_widget_1_0_0.js></script><div id="pixlee_init_container"></div><script type = "text/javascript" >Pixlee.init({apiKey: 'qEm0eAa02bgPoVjo0wyc',priority:true});Pixlee.addSimpleWidget({widgetId:13914656}); </script>
+        <link rel="preload" href="https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/84e28b3e-cafd-48d0-b5d3-08053a135c30/mold-maker.webp" as="image">
+    </head>
+    <body>
+        <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
+
+        <div id="top-bar"></div>
+        {{> components/common/header }}
+        {{> components/common/body }}
+        {{> components/common/footer-custom }}
+
+        <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
+        <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
+        <script>
+            {{!-- Exported in app.js --}}
+            window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();
+        </script>
+
+        {{{footer.scripts}}}
+
+        
+
+        <!-- ECI : START – Google DRC code - Standard Event -->
+<script>
+{{#if page_type '==' 'default'}}
+
+gtag('event','page_view',{
+    'send_to':'AW-947071908',
+    'ecomm_pagetype':'home'
+})
+
+{{else if page_type '==' 'category'}}
+
+gtag('event','page_view',{
+    'send_to':'AW-947071908',
+    'ecomm_pagetype':'category'
+})
+
+
+
+{{else if page_type '==' 'search'}}
+gtag('event','page_view',{
+    'send_to':'AW-947071908',
+    'ecomm_pagetype':'searchresults'
+})
+
+{{else if page_type '==' 'product'}}
+
+if(window.location.pathname.indexOf("/epoxy-polish/") > -1){
+    gtag('event','page_view',{
+        'send_to':'AW-947071908',
+        'ecomm_pagetype':'product',
+        'ecomm_pageid':"14504003873983368455",
+        'ecomm_totalvalue':'{{product.price.without_tax.value}}'
+    })
+} else if(window.location.pathname.indexOf("/digital-scale-3000-g-6-2-lb/")>-1){
+        gtag('event','page_view',{
+            'send_to':'AW-947071908',
+            'ecomm_pagetype':'product',
+            'ecomm_pageid':"1732624256224502829",
+            'ecomm_totalvalue':'{{product.price.without_tax.value}}'
+        })
+} else {
+    gtag('event','page_view',{
+    'send_to':'AW-947071908',
+    'ecomm_pagetype':'product',
+    'ecomm_pageid':'{{product.sku}}',
+    'ecomm_totalvalue':'{{product.price.without_tax.value}}'
+})
+}
+
+
+{{else if page_type '==' 'cart'}}
+var productids = productids || [];
+{{#each cart.items}}
+  productids.push({{product_id}});
+{{/each}}
+
+gtag('event','page_view',{
+    'send_to':'AW-947071908',
+    'ecomm_pagetype':'product',
+    'ecomm_pageid':productids,
+    'ecomm_totalvalue':'{{cart.sub_total.formatted}}'
+})
+
+{{else}}
+        gtag('event', 'page_view', {
+            'send_to': 'AW-947071908',
+            'ecomm_pagetype': 'other'
+        });
+
+{{/if}}
+
+</script>
+<!-- ECI : END – Google DRC code - Standard Event -->
+
+<!-- ECI : START – Pinterest -->
+{{#if page_type '==' 'product'}}
+<script>
+var eci_productIds = eci_productIds || [];
+var eci_productName = "{{#each product.category}}{{#if @first}}{{this}}{{/if}}{{/each}}";
+eci_productIds.push({
+product_id: {{product.id}},
+product_category: eci_productName
+});
+
+pintrk('track', 'PageVisit', {
+        line_items: eci_productIds,
+        value: {{product.price.without_tax.value}},
+        currency: 'USD'
+    });
+</script>
+
+{{else if page_type '==' 'category'}}
+<script>
+pintrk('track', 'ViewCategory');
+</script>
+
+{{/if}}
+
+<!-- ECI : END –Pinterest -->
+
+<!--ECI :START Add ToCart–Pinterest 7/4/2022-->
+<script>
+$(document).on('submit','.productView-options .form',function(e){
+var eci_quantity=$(this).find('.form-input--incrementTotal:first').val();
+var eci_product_id=$(this).find('[name="product_id"]').val();
+var eci_parent=$(this).closest('.productView-details')
+var eci_title=$(eci_parent).find('.productView-title').text();
+var eci_price_text=$(eci_parent).find('.price.price--withoutTax').text();
+var eci_price=eci_price_text.replace('$','')
+pintrk('track', 'AddToCart', {
+      currency: 'USD',
+      line_items: [
+      {
+        product_name: eci_title,
+        product_id: eci_product_id,
+        product_price: eci_price,
+        product_quantity: eci_quantity
+      }]
+  });
+
+})
+</script>
+<!--ECI :END Add ToCart–Pinterest 7/4/2022 -->
+
+    </body>
+</html>

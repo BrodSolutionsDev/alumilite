@@ -1,0 +1,193 @@
+{{#if banners.bottom}}
+{{#if settings.data_tag_enabled}}
+<div class="banners" data-banner-location="bottom">
+    {{#each (limit banners.bottom_metadata 1)}}
+    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}"
+        data-position="{{this.location}}" data-name="{{this.banner-name}}">
+        <div data-event-type="promotion-click">
+            {{{this.content}}}
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{else}}
+<div class="banners" data-banner-location="bottom">
+    <div class="banner">
+        {{{limit banners.bottom 1}}}
+    </div>
+</div>
+{{/if}}
+{{/if}}
+
+
+{{#if settings.show_newsletter_box}}
+<div class="footer-newsletter">
+    <strong style="font-size: 18px;">Subscribe for monthly offers and updates</strong>
+    <!-- <a class="button button--secondary" href="/newsletter-signup">Signup Here</a> -->
+    <div class="container">
+        <div class="klaviyo-form-MtzN7Q"></div>
+    </div>
+</div>
+{{/if}}
+
+<script>
+    const metaTags = "{{head.meta_tags}}";
+    if (metaTags.includes("academy")) {
+        document.querySelector(".footer-newsletter").style.display = "none"
+    }
+</script>
+
+<footer class="footer" role="contentinfo">
+    <div class="container">
+        <section class="footer-info 4a616d6573">
+            <article class="footer-info-col footer-info-dropdown footer-info-col--small"
+                data-section-type="footer-categories">
+                <h5 class="footer-info-heading">
+                    Products
+                    <i class="icon" aria-hidden="true">
+                        <svg>
+                            <use xlink:href="#icon-downselector" />
+                        </svg>
+                    </i>
+                </h5>
+                <ul class="footer-info-list">
+                    {{#each categories}}
+                    {{#each children}}
+                    <li>
+                        <a href="{{url}}">{{name}}</a>
+                    </li>
+                    {{/each}}
+
+                    {{/each}}
+                    {{#if settings.gift_certificates_enabled}}
+                    <li>
+                        <a href="{{urls.gift_certificate.purchase}}">{{lang 'common.gift_cert'}}</a>
+                    </li>
+                    {{/if}}
+                </ul>
+            </article>
+
+            <article class="footer-info-col footer-info-dropdown footer-info-col--small"
+                data-section-type="footer-webPages">
+                <h5 class="footer-info-heading">
+                    Learn
+                    <i class="icon" aria-hidden="true">
+                        <svg>
+                            <use xlink:href="#icon-downselector" />
+                        </svg>
+                    </i>
+                </h5>
+                <ul class="footer-info-list">
+                    <!--<li>
+                        <a href="/acadmey/">Alumilite Academy</a>
+                    </li>
+                    <li>
+                        <a href="https://academy.alumilite.com/enrollments">Student Dashboard</a>
+                    </li>-->
+                    <li>
+                        <a href="/volume-calculator/">Volume Calculator</a>
+                    </li>
+                    <li>
+                        <a href="/applications/surface-coating/">Surface Coating Calculator</a>
+                    </li>
+                    <li>
+                        <a href="https://alumilite.freeforums.net/board/4/molding-casting/">Community Forum</a>
+                    </li>
+                </ul>
+            </article>
+
+            <article class="footer-info-col footer-info-dropdown footer-info-col--small"
+                data-section-type="footer-webPages">
+                <h5 class="footer-info-heading">
+                    Resources
+                    <i class="icon" aria-hidden="true">
+                        <svg>
+                            <use xlink:href="#icon-downselector" />
+                        </svg>
+                    </i>
+                </h5>
+                <ul class="footer-info-list">
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    <li>
+                        <a href="/affiliates/">Affiliates</a>
+                    </li>
+                    <li>
+                        <a href="/contact-us/">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="/find-locally/">Find Locally</a>
+                    </li>
+                    <li>
+                        <a href="/shipping-returns/">Shipping & Returns</a>
+                    </li>
+                    <li>
+                        <a href="/support/">Support</a>
+                    </li>
+                    <li>
+                        <a href="/terms-conditions/">Terms & Conditions</a>
+                    </li>
+                    <li>
+                        <a href="/privacy-policy/">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
+                    </li>
+                </ul>
+            </article>
+
+            {{#if theme_settings.social_icons_footer}}
+            <article class="footer-info-col footer-mobile-limited footer-info-col--small"
+                data-section-type="footer-webPages">
+                <h5 class="footer-info-heading">{{lang 'social.connect'}}</h5>
+                {{> components/common/social-links}}
+            </article>
+            {{/if}}
+
+            {{#if settings.address}}
+            <article class="footer-info-col footer-mobile-limited footer-info-col--small" data-section-type="storeInfo">
+                <div class="footer-logo-image-container">
+                    <img class="footer-logo-image" src="{{cdn 'icons/alumilite-logo-light-grey.svg'}}"
+                        alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
+                </div>
+                <!--<h5 class="footer-info-heading footer-store-name">{{settings.store_name}}</h5>-->
+                <address>2612 Kersten Court<br>Kalamazoo, MI 49048
+                </address>
+                {{#if settings.phone_number}}
+                <div class="footer-info-phone">
+                    <i class="icon" aria-hidden="true">
+                        <svg>
+                            <use xlink:href="#icon-phone" />
+                        </svg>
+                    </i>
+                    <a href="tel:{{settings.phone_number}}">{{settings.phone_number}}</a>
+                </div>
+                {{/if}}
+                <div class="footer-info-phone">
+                    <i class="icon" aria-hidden="true">
+                        <svg>
+                            <use xlink:href="#icon-envelope" />
+                        </svg>
+                    </i>
+                    <a href="mailto:info@alumilite.com">info@alumilite.com</a>
+                </div>
+                <p class="business-hours">Monday-Friday<br>8:00am - 8:00pm (EST)</p>
+            </article>
+            {{/if}}
+        </section>
+        {{#if theme_settings.geotrust_ssl_common_name}}
+        <div class="footer-geotrust-ssl-seal">
+            {{> components/common/geotrust-ssl-seal}}
+        </div>
+        {{/if}}
+
+        <div class="footer-copyright">
+            {{> components/common/payment-icons}}
+            {{#if theme_settings.show_copyright_footer}}
+            <p class="powered-by">1996-{{moment format="YYYY"}} &copy; Alumilite Corporation. All Rights Reserved.</p>
+            {{/if}}
+        </div>
+
+    </div>
+</footer>

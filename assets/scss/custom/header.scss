@@ -1,0 +1,140 @@
+@import 'variables';
+
+.blog-title {
+	font-size: 26px;
+    margin: 0 1.5rem .375rem;
+    text-align: center;
+}
+.blog .addthis_toolbox {
+	margin-top: 0;
+}
+
+@media only screen and (min-width: 801px) {
+    #quickSearch {
+        border: 1px solid #424242;
+        border-radius: 5px;
+        padding: 2px;
+    
+        .quickSearchResults {
+            top: calc(100% + 1px);
+        }
+    
+        #search_query {
+            padding-top: 3px;
+            padding-bottom: 3px;
+            height: 35px;
+        }
+    
+        .form-button {
+            height: 35px;
+            top: 2px;
+        }
+    }
+
+    .navUser-item {
+        display: flex;
+        align-items: center;
+    
+        .navUser-action,
+        span {
+            margin-left: 4px;
+            display: flex;
+            align-items: center;
+        }
+    
+        &.navUser-item--cart {
+            padding-left: 4 !important;
+        
+            .navUser-action {
+                margin-left: 0;
+                i {
+                    margin-right: 4px;
+                }
+            }
+        }
+    }
+    
+    .navUser-item--mobile-search {
+        display: none;
+    }
+
+    .navPages-action {
+        padding: 10px 15px;
+    }
+
+    .navPages-mega .navPage-subMenu {
+        border-top: none;
+    }
+}
+
+// search bar results
+.quickSearchResults .card-image {
+    position: absolute;
+}
+
+// mobile navbar
+@media only screen and (max-width: 800px) {
+    .navUser-action {
+        display: flex;
+        align-items: center;
+
+        i {
+            margin-right: 4px !important;
+        }
+    }
+
+    .navUser-item--mobile-search {
+        display: flex !important;
+        align-items: center;
+    }
+
+    .navPages-item {
+        .user-icon {
+            filter: invert(100%) sepia(56%) saturate(0%) hue-rotate(192deg) brightness(113%) contrast(100%);
+        }
+    }
+
+    .navPages-item-phone {
+        position: relative !important;
+
+        a {
+            font-family: "Interstate" !important;
+            font-weight: 700 !important;
+        }
+    }
+}
+
+
+
+
+// .note-wrapper {
+//   width: 100%;
+//   display: flex;
+//   padding: 5px 0;
+//   background: #000;
+//   position: fixed;
+//   z-index: 2;
+//   margin-top: -25px;
+// }
+
+// .note-wrapper p {
+//   width: 95%;
+//   color: #fff;
+//   margin: 0 auto;
+//   font-size: 16px;
+//   text-align: center;
+
+//   @media only screen and (max-width: 650px) {
+//     font-size: 12px;
+//   }
+// }
+
+// .note-wrapper + .body {
+// //   padding-top: 25px !important;
+// }
+
+// @media only screen and (max-width: 1061px) {
+//   .note-wrapper + .body {
+//     padding-top: 25px !important;
+//   }
+// }

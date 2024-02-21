@@ -1,0 +1,17 @@
+<div class="flex-33">
+    <div class="b-post">
+        <div class="b-post-content">
+            {{#if post.thumbnail}}
+                <div class="blog-thumbnail" style="background-image:url({{getImage post.thumbnail 'defaultImage'}})"><a href="{{post.url}}"></a></div>
+            {{else}}
+                <div class="blog-thumbnail" style="background-image:url(https://via.placeholder.com/600x400?text=Blog)">
+                    <a href="{{post.url}}"></a>
+                </div>
+            {{/if}}
+            <div class="b-post-desc">
+                <h2 class="b-post-title"><a href="{{post.url}}">{{post.title}}</a></h2>
+                <a href="{{url}}" class="button button--primary">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
